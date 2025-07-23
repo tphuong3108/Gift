@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow p-4 flex flex-col justify-between relative">
+    <div className="bg-white rounded-2xl shadow p-4 flex flex-col justify-between relative h-[460px]"> {/* 👈 cố định chiều cao */}
       <div className="absolute top-3 left-3">
         <span className="text-xs font-bold bg-blue-500 text-white px-2 py-1 rounded-full">
           {product.category || 'Danh mục'}
@@ -24,18 +24,24 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
       )}
+      <div className="flex-1 flex flex-col justify-between">
+        <img
+          src={product.img}
+          alt={product.name}
+          className="w-full h-40 object-contain my-4"
+        />
 
-      <img src={product.img} alt={product.name} className="w-full h-40 object-contain my-4" />
+        <div>
+          <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
 
-      <h3 className="text-base font-semibold mb-1">{product.name}</h3>
-
-      <ul className="text-sm text-gray-700 list-disc pl-5 mb-3">
-        {product.details?.map((d, i) => (
-          <li key={i}>{d}</li>
-        ))}
-      </ul>
-
-      <div className="flex items-center gap-4 border-t pt-3 text-gray-500 text-sm">
+          <ul className="text-sm text-gray-700 list-disc pl-5 mb-3">
+            {product.details?.slice(0, 2).map((d, i) => (
+              <li key={i}>{d}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="flex items-center gap-4 border-t pt-3 text-gray-500 text-sm mt-auto">
         {product.freeShip && (
           <div className="flex items-center gap-1">
             <Truck size={14} /> Miễn phí giao hàng
@@ -47,8 +53,7 @@ const ProductCard = ({ product }) => {
           </div>
         )}
       </div>
-
-      <div className="flex items-center justify-between w-full px-4 mt-4">
+      <div className="flex items-center justify-between w-full mt-4">
         <button
           onClick={handleDetailClick}
           className="flex items-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-semibold px-6 py-2 rounded-full transition w-[220px] justify-center"

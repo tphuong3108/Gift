@@ -15,6 +15,8 @@ import NoticePage from "../../views/user/Notice/NoticePage";
 import Dashboard from "../../views/admin/Dashboard/Dashboard";
 import Login from "../../views/auth/Login";
 import Register from "../../views/auth/Register";
+import NotFoundPage from '../../views/common/NotFound';
+import ChatLayout from "../../views/user/Chat/ChatLayout";
 
 export default function AppRoutes() {
   return (
@@ -30,11 +32,12 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/notifications" element={<NoticePage />} />
-        <Route path="/messages" element={<ChatPage />} />
+        <Route path="/messages/:id" element={<ChatPage />} />
+        <Route path="/messages" element={<ChatLayout />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/product/:id" element={<ProductDetail />} />
-         <Route path="/program" element={<ProgramsPage />} />
-
+        <Route path="/program" element={<ProgramsPage />} />
+        <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/faq" element={<FAQPage />} /> 
         <Route path="/post" element={<PostPage />} />
       </Route>
@@ -43,6 +46,8 @@ export default function AppRoutes() {
       <Route element={<AdminLayout />}>
         <Route path="/admin" element={<Dashboard />} />
       </Route>
+      {/* NotFound */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

@@ -3,10 +3,14 @@ import ShareBar from '../../../src/components/Community/ShareBar';
 import PostCard from '../../../src/components/Community/PostCard';
 import CommunitySidebar from '../../../src/components/Community/CommunitySidebar';
 import { communityService } from '../../../src/services/CommunityService';
+import { userService } from '../../../src/services/userService';
 import { ChevronLeft, ChevronRight, X, MessageCircle, ThumbsUp, Share2 } from 'lucide-react';
 
 const CommunityPage = () => {
-  const posts = communityService.getPosts();
+  const posts = communityService.getPosts().map(post => ({
+    ...post,
+    user: userService.getUserById(post.userId), 
+  }));
   const [selectedPost, setSelectedPost] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -68,10 +72,8 @@ const CommunityPage = () => {
               )}
             </div>
 
-            {/* Sidebar phải */}
             <div className="w-full lg:w-[360px] bg-[#4AB262] p-5 flex flex-col justify-between overflow-y-auto">
 
-              {/* Info người dùng */}
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <img src={selectedPost.user.avatar} className="w-10 h-10 rounded-full" />

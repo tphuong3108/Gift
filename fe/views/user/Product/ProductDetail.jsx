@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom'; // import Link để sử dụng
+import { useParams, Link } from 'react-router-dom';
 import { productService } from '../../../src/services/productService';
+import { userService } from '../../../src/services/userService';
 import { Star } from 'lucide-react';
 import GiftsByUser from './GiftsByUser';
 import SimilarProducts from './SimilarProducts';
@@ -12,10 +13,16 @@ const ProductDetail = () => {
   const { id } = useParams();
   const product = productService.getProductById(id);
 
-  if (!product) return <div className="p-6">Sản phẩm không tồn tại</div>;
-
-  const imageList = product.images || [product.img];
+  const imageList = product?.images || [product?.img];
   const [selectedImage, setSelectedImage] = useState(imageList[0]);
+
+  if (!product) {
+    return <div className="p-6">Sản phẩm không tồn tại</div>;
+  }
+
+  const matchedUser = userService.getAllUsers().find(u => u.name === product.user);
+  const username = matchedUser?.username || '';
+  const profileLink = username ? `/profile/${username}` : '#';
 
   return (
     <div className="bg-[#E8F5E9] min-h-screen p-6">
@@ -70,27 +77,29 @@ const ProductDetail = () => {
               Xem cách chọn size
             </a>
           </p>
-        <div className="flex gap-3 mb-4">
-          <Link
-            to="/messages"
-            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full border border-green-500 text-green-700 hover:bg-green-50 transition"
-          >
-            <img src={Chat} alt="Chat" className="w-5 h-5" />
-            Chat ngay
-          </Link>
 
-          <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition">
-            <img src={Shop} alt="Đặt hàng" className="w-5 h-5" />
-            Đặt hàng ngay
-          </button>
-        </div>
+          <div className="flex gap-3 mb-4">
+            <Link
+              to={`/messages?user=${encodeURIComponent(username)}&product=${product.id}`}
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full border border-green-500 text-green-700 hover:bg-green-50 transition"
+            >
+              <img src={Chat} alt="Chat" className="w-5 h-5" />
+              Chat ngay
+            </Link>
 
-          {/* Chỉnh sửa phần người đăng */}
+            <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition">
+              <img src={Shop} alt="Đặt hàng" className="w-5 h-5" />
+              Nhận ngay
+            </button>
+          </div>
+
           <div className="flex items-center gap-3 mb-4">
             <img src={Avatar} alt="Người đăng" className="w-10 h-10 rounded-full" />
             <div>
-              {/* Thêm Link vào tên người đăng */}
-              <Link to={`/profile/${product.user}`} className="font-medium text-blue-600 hover:underline">
+              <Link
+                to={profileLink}
+                className="font-medium text-blue-600 hover:underline"
+              >
                 {product.user}
               </Link>
               <p className="text-xs text-gray-500">Hoạt động 5 phút trước</p>
@@ -101,8 +110,15 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {[ 'Làm sao để tôi nhận được sản phẩm?', 'Sản phẩm này còn không?', 'Sản phẩm này có không?' ].map((text, i) => (
-              <button key={i} className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700">
+            {[
+              'Làm sao để tôi nhận được sản phẩm?',
+              'Sản phẩm này còn không?',
+              'Sản phẩm này có không?'
+            ].map((text, i) => (
+              <button
+                key={i}
+                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700"
+              >
                 {text}
               </button>
             ))}
@@ -113,7 +129,9 @@ const ProductDetail = () => {
       <div className="bg-white rounded-lg p-4 mb-4">
         <h3 className="text-lg font-bold mb-2 border-b pb-2">Mô tả sản phẩm</h3>
         <div className="text-sm text-gray-700 space-y-2">
-          {product.description?.map((p, i) => <p key={i}>{p}</p>)}
+          {product.description?.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
         </div>
       </div>
 
@@ -121,7 +139,10 @@ const ProductDetail = () => {
         <h3 className="text-lg font-bold mb-2">Tags</h3>
         <div className="flex flex-wrap gap-2">
           {(product.tags || []).map((tag, i) => (
-            <span key={i} className="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full cursor-pointer">
+            <span
+              key={i}
+              className="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full cursor-pointer"
+            >
               {tag}
             </span>
           ))}

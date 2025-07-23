@@ -4,9 +4,7 @@ import { FaArrowUp } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="bg-[#53A05A] text-black w-full px-4 sm:px-6 py-10 relative">
-      {/* Nội dung chính */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-        {/* Cột 1 */}
         <div>
           <h3 className="font-semibold mb-2">Liên Kết Nhanh</h3>
           <ul className="space-y-1 text-gray-800">
@@ -15,13 +13,11 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Cột 2 */}
         <div className="text-center md:text-left">
           <h3 className="font-semibold mb-2">Mạng Xã Hội</h3>
           <p className="text-gray-800">Facebook | Zalo</p>
         </div>
 
-        {/* Cột 3 */}
         <div className="text-left">
           <h3 className="font-semibold mb-2">Nhập Bảng Tin</h3>
           <form className="flex flex-col sm:flex-row items-center sm:space-x-2 gap-2 sm:gap-0">
@@ -37,12 +33,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bản quyền */}
       <div className="border-t border-white mt-6 pt-4 text-center text-xs text-gray-800">
         © 2025 Món Quà Cũ. All rights reserved.
       </div>
 
-      {/* Nút lên đầu trang */}
       <button
         className="absolute right-4 bottom-4 bg-white text-green-600 rounded-full p-3 shadow-lg hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-300 transition-all"
         title="Lên đầu trang"

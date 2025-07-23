@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { User, Bell, Search, ChevronDown } from 'lucide-react';
 import Avatar from '../../../src/assets/img/avatar.png';
 
-
 const ChatInfoSidebar = () => {
   const [sections, setSections] = useState({
     chatInfo: false,
@@ -16,10 +15,9 @@ const ChatInfoSidebar = () => {
   };
 
   return (
-    <aside className="w-[300px] bg-white border-l h-screen p-4 overflow-y-auto">
+    <aside className="w-full sm:w-[300px] bg-white h-full px-4 pt-4 pb-8 overflow-y-auto relative">
       <div className="text-center">
-        <img src={Avatar} alt="avatar" className="w-20 h-20 rounded-full mx-auto mb-2"
-        />
+        <img src={Avatar} alt="avatar" className="w-20 h-20 rounded-full mx-auto mb-2" />
         <h3 className="font-semibold text-lg">Lê Thị Minh Tâm</h3>
         <p className="text-sm text-gray-500 mb-4">Trực tuyến 9 phút trước</p>
         <div className="flex justify-center gap-6 mb-6">
