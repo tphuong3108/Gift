@@ -15,7 +15,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 5,
@@ -75,7 +75,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 6,
@@ -90,7 +90,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 7,
@@ -105,7 +105,7 @@ const mockProducts = [
     description: ['Mặc vài lần, còn rất mới.'],
     tags: ['áo sơ mi', 'nam'],
     freeShip: true,
-    hasBox: false,
+    hasBox: true,
   },
   {
     id: 8,
@@ -119,8 +119,8 @@ const mockProducts = [
     details: ['Đã qua sử dụng'],
     description: ['Cho học sinh lớp 1, vẫn còn tốt.'],
     tags: ['balo', 'trẻ em'],
-    freeShip: false,
-    hasBox: false,
+    freeShip: true,
+    hasBox: true,
   },
   {
     id: 9,
@@ -149,8 +149,8 @@ const mockProducts = [
     details: ['Hàng đã dùng'],
     description: ['Túi xách đơn giản, còn dùng tốt.'],
     tags: ['túi xách', 'phụ kiện'],
-    freeShip: false,
-    hasBox: false,
+    freeShip: true,
+    hasBox: true,
   },
   {
     id: 11,
@@ -164,8 +164,8 @@ const mockProducts = [
     details: ['Hàng đã dùng'],
     description: ['Túi xách đơn giản, còn dùng tốt.'],
     tags: ['túi xách', 'phụ kiện'],
-    freeShip: false,
-    hasBox: false,
+    freeShip: true,
+    hasBox: true,
   },
   {
     id: 12,
@@ -179,8 +179,8 @@ const mockProducts = [
     details: ['Hàng đã dùng'],
     description: ['Túi xách đơn giản, còn dùng tốt.'],
     tags: ['túi xách', 'phụ kiện'],
-    freeShip: false,
-    hasBox: false,
+    freeShip: true,
+    hasBox: true,
   }
 ];
 

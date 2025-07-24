@@ -45,13 +45,26 @@ export const userService = {
     const user = fakeUsers.find(
       (u) => u.username === username && u.password === password
     );
+
     if (user) {
-      localStorage.setItem('token', user.token);
-      localStorage.setItem('user', JSON.stringify(user));
-      return { success: true, user };
+      const avatarUrl =
+        typeof user.avatar === 'string'
+          ? user.avatar
+          : user.avatar?.default || '';
+
+      const safeUser = {
+        ...user,
+        avatar: avatarUrl, 
+      };
+      localStorage.setItem('token', safeUser.token);
+      localStorage.setItem('user', JSON.stringify(safeUser));
+
+      return { success: true, user: safeUser };
     }
+
     return { success: false, message: 'Tài khoản hoặc mật khẩu sai.' };
   },
+
   logout: () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');

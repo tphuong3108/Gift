@@ -15,8 +15,14 @@ import NoticePage from "../../views/user/Notice/NoticePage";
 import Dashboard from "../../views/admin/Dashboard/Dashboard";
 import Login from "../../views/auth/Login";
 import Register from "../../views/auth/Register";
+import ForgotPassword from "../../views/auth/ForgotPassword";
+import VerifyCode from "../../views/auth/VerifyCode";
+import ResetPassword from "../../views/auth/ResetPassword";
+import ResetSuccess from "../../views/auth/ResetSuccess";
 import NotFoundPage from '../../views/common/NotFound';
 import ChatLayout from "../../views/user/Chat/ChatLayout";
+import AccountSettings from "../../views/user/Account/AccountSettings";
+
 
 export default function AppRoutes() {
   return (
@@ -25,6 +31,10 @@ export default function AppRoutes() {
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="verify-otp" element={<VerifyCode />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/reset-success" element={<ResetSuccess />} />
       </Route>
 
       {/* User */}
@@ -40,6 +50,8 @@ export default function AppRoutes() {
         <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/faq" element={<FAQPage />} /> 
         <Route path="/post" element={<PostPage />} />
+        <Route path="/account-settings" element={<AccountSettings />} />
+        
       </Route>
 
       {/* Admin */}

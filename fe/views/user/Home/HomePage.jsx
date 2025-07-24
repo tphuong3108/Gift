@@ -15,8 +15,6 @@ const HomePage = () => {
   return (
     <div className="px-4 sm:px-6 py-4">
       <Banner />
-
-      {/* Thanh tìm kiếm responsive */}
       <div className="mb-6 flex justify-center">
         <div className="w-full max-w-4xl bg-[#E8F5E9] rounded-full flex items-center px-4 sm:px-6 py-2 sm:h-12 shadow-inner">
           <img

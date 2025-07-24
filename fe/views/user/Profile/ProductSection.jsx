@@ -17,13 +17,13 @@ const ProductSection = ({ selectedTab, setSelectedTab, products }) => (
       ))}
     </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
       {products.length > 0 ? (
         products.map((product) => (
           <div
-            key={product.id}
-            className="border rounded-lg shadow-sm overflow-hidden relative flex flex-col"
-          >
+              key={product.id}
+              className="rounded-xl border border-gray-200 bg-white shadow hover:shadow-md transition-all overflow-hidden flex flex-col text-sm"
+            >
             <ProductCard product={product} />
           </div>
         ))

@@ -8,6 +8,8 @@ import SimilarProducts from './SimilarProducts';
 import Avatar from '../../../src/assets/img/avatar_1.png';
 import Chat from '../../../src/assets/img/chat2.png';
 import Shop from '../../../src/assets/img/shop.png';
+import SuccessPopup from './SuccessPopup';
+import FailurePopup from './FailurePopup';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -15,14 +17,28 @@ const ProductDetail = () => {
 
   const imageList = product?.images || [product?.img];
   const [selectedImage, setSelectedImage] = useState(imageList[0]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFailure, setShowFailure] = useState(false);
 
-  if (!product) {
-    return <div className="p-6">Sản phẩm không tồn tại</div>;
-  }
+  const [requestTime] = useState(() => {
+    const now = new Date();
+    return now.toLocaleTimeString('vi-VN') + ' ngày ' + now.toLocaleDateString('vi-VN');
+  });
+
+  if (!product) return <div className="p-6">Sản phẩm không tồn tại</div>;
 
   const matchedUser = userService.getAllUsers().find(u => u.name === product.user);
   const username = matchedUser?.username || '';
   const profileLink = username ? `/profile/${username}` : '#';
+
+  const handleReceive = () => {
+    if (product.given) {
+      setShowFailure(true);
+    } else {
+      setShowSuccess(true);
+      product.given = true; 
+    }
+  };
 
   return (
     <div className="bg-[#E8F5E9] min-h-screen p-6">
@@ -52,6 +68,7 @@ const ProductDetail = () => {
           />
         </div>
 
+        {/* Thông tin sản phẩm */}
         <div>
           <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
           <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -68,14 +85,10 @@ const ProductDetail = () => {
             )}
           </div>
 
-          <p className="mb-2 text-sm">
-            Màu sắc: <strong>Đen</strong>
-          </p>
+          <p className="mb-2 text-sm">Màu sắc: <strong>Đen</strong></p>
           <p className="mb-4 text-sm">
             Size: <strong>6</strong>
-            <a href="#" className="text-green-700 underline ml-2">
-              Xem cách chọn size
-            </a>
+            <a href="#" className="text-green-700 underline ml-2">Xem cách chọn size</a>
           </p>
 
           <div className="flex gap-3 mb-4">
@@ -87,7 +100,10 @@ const ProductDetail = () => {
               Chat ngay
             </Link>
 
-            <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition">
+            <button
+              onClick={handleReceive}
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition"
+            >
               <img src={Shop} alt="Đặt hàng" className="w-5 h-5" />
               Nhận ngay
             </button>
@@ -96,10 +112,7 @@ const ProductDetail = () => {
           <div className="flex items-center gap-3 mb-4">
             <img src={Avatar} alt="Người đăng" className="w-10 h-10 rounded-full" />
             <div>
-              <Link
-                to={profileLink}
-                className="font-medium text-blue-600 hover:underline"
-              >
+              <Link to={profileLink} className="font-medium text-blue-600 hover:underline">
                 {product.user}
               </Link>
               <p className="text-xs text-gray-500">Hoạt động 5 phút trước</p>
@@ -129,9 +142,7 @@ const ProductDetail = () => {
       <div className="bg-white rounded-lg p-4 mb-4">
         <h3 className="text-lg font-bold mb-2 border-b pb-2">Mô tả sản phẩm</h3>
         <div className="text-sm text-gray-700 space-y-2">
-          {product.description?.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+          {product.description?.map((p, i) => <p key={i}>{p}</p>)}
         </div>
       </div>
 
@@ -151,6 +162,13 @@ const ProductDetail = () => {
 
       <GiftsByUser user={product.user} currentProductId={product.id} />
       <SimilarProducts />
+
+      {showSuccess && (
+        <SuccessPopup onClose={() => setShowSuccess(false)} />
+      )}
+      {showFailure && (
+        <FailurePopup onClose={() => setShowFailure(false)} requestTime={requestTime} />
+      )}
     </div>
   );
 };

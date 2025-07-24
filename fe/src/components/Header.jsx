@@ -17,6 +17,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [avatar, setAvatar] = useState(AvatarIcon);
   const [activeMenu, setActiveMenu] = useState('Trang chủ');
+  const [username, setUsername] = useState('');
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,9 +27,9 @@ const Header = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     setIsLoggedIn(!!token);
     if (user?.avatar) setAvatar(user.avatar);
+    if (user?.username) setUsername(user.username);
   }, []);
 
-  // Optional: Auto-set active menu from URL path
   useEffect(() => {
     const pathMap = {
       '/': 'Trang chủ',
@@ -65,6 +66,115 @@ const Header = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
+      {menuOpen && (
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 md:hidden">
+          <nav className="flex flex-col items-start space-y-2 p-4">
+            {menus.map((item, idx) => (
+              <Link
+                key={idx}
+                to={item.path}
+                onClick={() => {
+                  setActiveMenu(item.label);
+                  setMenuOpen(false);
+                }}
+                className="text-gray-700 hover:text-green-600 text-base"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <Link
+              to="/post"
+              onClick={() => setMenuOpen(false)}
+              className="mt-2 bg-green-600 text-white w-full text-center py-2 rounded-full hover:bg-green-700"
+            >
+              + Đăng tin
+            </Link>
+
+            <hr className="my-3 w-full border-gray-200" />
+
+            {isLoggedIn ? (
+              <div className="flex flex-col gap-3 w-full">
+                <div className="flex items-center gap-3">
+                  <img src={avatar} className="w-10 h-10 rounded-full object-cover" alt="avatar" />
+                  <span className="font-medium text-gray-800">Xin chào</span>
+                </div>
+
+                <Link
+                  to={`/profile/${username}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Hồ sơ cá nhân
+                </Link>
+
+                <Link
+                  to="/notifications"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Thông báo
+                </Link>
+
+                <Link
+                  to="/messages"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Tin nhắn
+                </Link>
+
+                <Link
+                  to="/my-posts"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Tin đã đăng
+                </Link>
+
+                <Link
+                  to="/history"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Lịch sử cho nhận
+                </Link>
+
+                <Link
+                  to="/account-settings"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Cài đặt tài khoản
+                </Link>
+
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMenuOpen(false);
+                  }}
+                  className="text-left text-red-500 hover:text-red-600"
+                >
+                  Đăng xuất
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3 w-full">
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    navigate('/login');
+                  }}
+                  className="text-gray-700 hover:text-green-600 text-center"
+                >
+                  Đăng nhập / Đăng ký
+                </button>
+              </div>
+            )}
+          </nav>
+        </div>
+      )}
+
 
       <nav className="hidden md:flex flex-grow justify-center items-center space-x-6">
         {menus.map((item, idx) => (
@@ -116,19 +226,46 @@ const Header = () => {
             {dropdownOpen && (
               <div className="absolute right-0 top-full mt-2 w-60 bg-white rounded-xl shadow-lg z-50 text-sm">
                 <ul className="py-2">
-                  <li onClick={() => { navigate('/profile'); setDropdownOpen(false); }} className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={() => {
+                      navigate(`/profile/${username}`);
+                      setDropdownOpen(false);
+                    }}
+                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     <img src={AccountIcon} className="w-5 h-5" /> Hồ sơ cá nhân
                   </li>
-                  <li onClick={() => { navigate('/my-posts'); setDropdownOpen(false); }} className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={() => {
+                      navigate('/my-posts');
+                      setDropdownOpen(false);
+                    }}
+                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     <img src={NewsIcon} className="w-5 h-5" /> Tin đã đăng
                   </li>
-                  <li onClick={() => { navigate('/history'); setDropdownOpen(false); }} className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={() => {
+                      navigate('/history');
+                      setDropdownOpen(false);
+                    }}
+                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     <img src={StoryIcon} className="w-5 h-5" /> Lịch sử cho nhận
                   </li>
-                  <li onClick={() => { navigate('/account-settings'); setDropdownOpen(false); }} className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={() => {
+                      navigate('/account-settings');
+                      setDropdownOpen(false);
+                    }}
+                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     <img src={SettingIcon} className="w-5 h-5" /> Cài đặt
                   </li>
-                  <li onClick={handleLogout} className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={handleLogout}
+                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     <img src={LogoutIcon} className="w-5 h-5" /> Đăng xuất
                   </li>
                 </ul>
@@ -162,16 +299,6 @@ const Header = () => {
                   >
                     <img src={AccountIcon} alt="" className="w-5 h-5" />
                     Đăng ký / Đăng nhập
-                  </li>
-                  <li
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => {
-                      setDropdownOpen(false);
-                      navigate('/account-settings');
-                    }}
-                  >
-                    <img src={SettingIcon} alt="" className="w-5 h-5" />
-                    Cài đặt tài khoản
                   </li>
                 </ul>
               </div>
