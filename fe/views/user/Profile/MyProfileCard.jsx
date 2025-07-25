@@ -36,7 +36,6 @@ const MyProfileCard = ({ user }) => {
         Chia sẻ trang cá nhân
       </button>
 
-      {/* Link đến trang chỉnh sửa */}
       <Link to="/account-settings" className="block w-full">
         <button className="w-full mt-2 px-5 py-2 bg-white border text-green-600 rounded-full hover:bg-gray-100 flex items-center gap-2 justify-center text-sm">
           <img src={SettingIcon} className="w-4 h-4" alt="Edit" />
@@ -61,7 +60,7 @@ const MyProfileCard = ({ user }) => {
 
       <div className="flex justify-center gap-4 mt-4">
         <img src={FB} alt="Facebook" className="w-6 h-6" />
-        <img src={Zalo} alt="Zalo" className="w-6 h-6" />
+        <img src={Zalo} alt="Zalo" className="w-9 h-6 object-contain" />
         <img src={Gmail} alt="Gmail" className="w-6 h-6" />
       </div>
     </div>

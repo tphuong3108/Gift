@@ -6,6 +6,7 @@ import MyProfileCard from './MyProfileCard';
 import OtherProfileCard from './OtherProfileCard';
 import AdCard from './AdCard';
 import ProductSection from './ProductSection';
+import ProductDetailPopup from './ProductDetailPopup';
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -13,6 +14,7 @@ const ProfilePage = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedTab, setSelectedTab] = useState('displaying');
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const fetchData = () => {
@@ -34,8 +36,8 @@ const ProfilePage = () => {
   const isOwner = currentUser?.username === user.username;
 
   return (
+  <>
     <div className="flex flex-col md:flex-row bg-white min-h-screen w-full px-4 py-6 gap-6">
-      {/* Sidebar trái */}
       <div className="w-full md:w-[20%] flex flex-col items-center gap-4 h-full">
         {isOwner ? (
           <MyProfileCard user={user} />
@@ -45,16 +47,26 @@ const ProfilePage = () => {
         <AdCard />
       </div>
 
-      {/* Phần sản phẩm */}
       <div className="w-full md:w-[80%]">
         <ProductSection
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
           products={productsToShow}
+          isOwner={isOwner}
+          onProductClick={setSelectedProduct}
         />
       </div>
     </div>
-  );
-};
+
+    {/* Popup chi tiết sản phẩm */}
+    {selectedProduct && (
+      <ProductDetailPopup
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
+    )}
+  </>
+);
+}
 
 export default ProfilePage;

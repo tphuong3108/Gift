@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from '../../../src/components/Product/ProductCard';
 
-const ProductSection = ({ selectedTab, setSelectedTab, products }) => (
+const ProductSection = ({ selectedTab, setSelectedTab, products, isOwner, onProductClick }) => (
   <>
     <div className="flex gap-8 mb-4 border-b border-gray-200">
       {['displaying', 'given'].map((tab) => (
@@ -17,15 +17,10 @@ const ProductSection = ({ selectedTab, setSelectedTab, products }) => (
       ))}
     </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {products.length > 0 ? (
         products.map((product) => (
-          <div
-              key={product.id}
-              className="rounded-xl border border-gray-200 bg-white shadow hover:shadow-md transition-all overflow-hidden flex flex-col text-sm"
-            >
-            <ProductCard product={product} />
-          </div>
+          <ProductCard key={product.id} product={product} isOwner={isOwner}  onClick={() => onProductClick(product)} />
         ))
       ) : (
         <p className="col-span-full text-gray-500">Không có sản phẩm nào.</p>

@@ -1,4 +1,3 @@
-// components/UserProfileCard/OtherProfileCard.jsx
 import React, { useState } from 'react';
 import MoreIcon from '../../../src/assets/img/more.png';
 import ShareIcon from '../../../src/assets/img/share1.png';
@@ -14,12 +13,15 @@ import MapIcon from '../../../src/assets/img/map2.png';
 import FB from '../../../src/assets/img/facebook.png';
 import Zalo from '../../../src/assets/img/zalo.png';
 import Gmail from '../../../src/assets/img/mail.png';
+import Report from './Report';
 
 const OtherProfileCard = ({ user }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [showReport, setShowReport] = useState(false); 
 
   return (
     <div className="relative w-full bg-white rounded-xl shadow-md p-4 pt-6 text-center">
+      {showReport && <Report onClose={() => setShowReport(false)} />}
       <div className="absolute top-4 right-4 z-50">
         <button
           onClick={() => setDropdownVisible(!dropdownVisible)}
@@ -39,7 +41,13 @@ const OtherProfileCard = ({ user }) => {
                 <img src={ChatIcon} className="w-4 h-4" />
                 <span>Chat</span>
               </li>
-              <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+              <li
+                className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => {
+                  setDropdownVisible(false);
+                  setShowReport(true);
+                }}
+              >
                 <img src={ReportIcon} className="w-4 h-4" />
                 <span>Báo cáo người dùng</span>
               </li>
@@ -91,7 +99,7 @@ const OtherProfileCard = ({ user }) => {
 
       <div className="flex justify-center gap-4 mt-4">
         <img src={FB} alt="Facebook" className="w-6 h-6" />
-        <img src={Zalo} alt="Zalo" className="w-6 h-6" />
+        <img src={Zalo} alt="Zalo" className="w-9 h-6 object-contain" />
         <img src={Gmail} alt="Gmail" className="w-6 h-6" />
       </div>
     </div>

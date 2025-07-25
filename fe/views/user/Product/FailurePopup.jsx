@@ -23,7 +23,7 @@ const FailurePopup = ({ onClose, requestTime }) => {
 
         <h2 className="text-xl font-bold text-gray-800 mt-4">Thất bại</h2>
         <p className="text-sm text-gray-600 mt-2">
-          Bạn đã gửi yêu cầu xin sản phẩm này<br />
+          Bạn đã gửi yêu cầu nhận sản phẩm này<br />
           lúc {requestTime}
         </p>
 
