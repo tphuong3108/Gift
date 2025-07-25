@@ -47,7 +47,7 @@ const ProgramIntro = () => {
         <div className="grid grid-cols-2 gap-6">
           {stats.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center">
-              <div className="h-16 w-16 rounded-full border-2 border-green-500 flex items-center justify-center mb-3">
+            <div className="h-16 w-16 rounded-full flex items-center justify-center mb-3">
                 <img src={item.icon} alt={item.label} className="h-8 w-8" />
               </div>
               <p className="text-2xl font-bold text-[#362465]">{item.number}</p>

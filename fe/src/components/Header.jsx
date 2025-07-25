@@ -58,7 +58,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="relative bg-[#E8F5E9] shadow p-4 px-6 flex items-center justify-between">
+    <header className="relative bg-[#E8F5E9] border-b border-[#000000B2] p-3 px-6 flex items-center justify-between">
       <div className="text-xl font-bold text-[#4CAF50] flex-shrink-0">Món Quà Nhỏ</div>
 
       <div className="md:hidden">
@@ -82,15 +82,12 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-
-            <Link
-              to="/post"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 bg-green-600 text-white w-full text-center py-2 rounded-full hover:bg-green-700"
-            >
-              + Đăng tin
-            </Link>
-
+              <Link
+                to="/post"
+                className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700"
+              >
+                + Đăng tin
+              </Link>
             <hr className="my-3 w-full border-gray-200" />
 
             {isLoggedIn ? (
@@ -175,7 +172,6 @@ const Header = () => {
         </div>
       )}
 
-
       <nav className="hidden md:flex flex-grow justify-center items-center space-x-6">
         {menus.map((item, idx) => (
           <Link
@@ -202,7 +198,6 @@ const Header = () => {
         </Link>
       </nav>
 
-      {/* Right Side */}
       <div className="hidden md:flex items-center space-x-3 relative">
         <span className="bg-white text-green-600 rounded-full px-3 py-1 text-sm font-semibold">VN</span>
 

@@ -5,14 +5,14 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 export default function MainLayout() {
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Header/>
-      <main className="flex-grow">
-        <Outlet /> 
+      <Header />
+      <main className="flex-grow w-full">
+        <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
+

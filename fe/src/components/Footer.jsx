@@ -3,7 +3,7 @@ import { FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#53A05A] text-black w-full px-4 sm:px-6 py-10 relative">
+    <footer className="bg-[#4AB262] text-black w-full px-4 sm:px-6 py-10 relative">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
         <div>
           <h3 className="font-semibold mb-2">Liên Kết Nhanh</h3>
@@ -20,20 +20,22 @@ const Footer = () => {
 
         <div className="text-left">
           <h3 className="font-semibold mb-2">Nhập Bảng Tin</h3>
+
           <form className="flex flex-col sm:flex-row items-center sm:space-x-2 gap-2 sm:gap-0">
             <input
               type="email"
               placeholder="Email của bạn"
-              className="px-3 py-2 rounded-full bg-green-100 text-black focus:outline-none w-full sm:w-auto"
+              className="px-3 py-2 rounded-full bg-[#FFFFFFB2] text-black focus:outline-none w-full sm:w-auto"
             />
-            <button className="bg-white text-green-600 px-4 py-2 rounded-full text-sm">
+
+            <button className="bg-[#FDFDFD] text-black px-4 py-2 rounded-full text-sm">
               Đăng Ký
             </button>
           </form>
         </div>
       </div>
 
-      <div className="border-t border-white mt-6 pt-4 text-center text-xs text-gray-800">
+      <div className="border-t border-black mt-6 pt-4 text-center text-xs text-gray-800">
         © 2025 Món Quà Cũ. All rights reserved.
       </div>
 

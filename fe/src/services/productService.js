@@ -187,7 +187,7 @@ const mockProducts = [
 export const productService = {
   getAllProducts: () => mockProducts,
   getNewProducts: () => mockProducts.filter((p) => p.isNew),
-  getPopularProducts: () => mockProducts.slice(),
+  getPopularProducts: () => mockProducts.slice(0,8),
   getProductsByUser: (username, isGiven = false) =>
     mockProducts.filter((p) => p.user === username && p.given === isGiven),
   getProductById: (id) => mockProducts.find((p) => p.id === Number(id)),

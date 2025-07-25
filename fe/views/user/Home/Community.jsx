@@ -29,8 +29,9 @@ const Community = () => {
   ];
 
   return (
-    <section className="bg-white p-6 rounded-lg mb-6">
-      <h2 className="text-2xl font-bold text-[#29752F]">CỘNG ĐỒNG</h2>
+    <section className="bg-A5A5A5 p-6 rounded-lg mb-6">
+      <div className="container mx-auto px-2">
+      <h2 className="text-3xl font-bold text-[#29752F] text-center">CỘNG ĐỒNG</h2>
       <p className="text-gray-600 text-center mb-6">
         Kết nối với cộng đồng những người yêu thích chia sẻ và lan tỏa yêu thương
       </p>
@@ -38,13 +39,14 @@ const Community = () => {
         {stats.map((item, index) => (
           <div
             key={index}
-            className="bg-[#E8F5E9] p-6 rounded-lg text-center flex flex-col items-center justify-center"
+            className="bg-[#E8F5E9] min-h-[350px] p-6 rounded-lg text-center flex flex-col items-center justify-center"
           >
-            <img src={item.icon} alt={item.label} className="h-12 w-12 mb-4" />
+            <img src={item.icon} alt={item.label} className="h-24 w-24 mb-4" />
             <p className="text-2xl font-bold text-[#362465] mb-1">{item.number}</p>
             <p className="text-gray-600">{item.label}</p>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

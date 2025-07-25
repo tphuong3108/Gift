@@ -75,4 +75,3 @@ const ProductCard = ({ product, isOwner }) => {
 export default ProductCard;
 
 
-          //className="flex items-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-semibold px-6 py-2 rounded-full transition w-[300px] justify-center"
