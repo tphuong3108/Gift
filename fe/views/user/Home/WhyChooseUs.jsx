@@ -5,7 +5,8 @@ const WhyChooseUs = () => {
   return (
     <section className="bg-gray-50 px-6 py-10 rounded-lg mb-6 text-center">
        <div className="container mx-auto px-2">
-      <h2 className="text-3xl font-bold text-[#29752F] mb-2">
+      <h2 className="text-3xl font-bold text-[#2E5E31] mb-2">
+
         VÌ SAO NÊN CHỌN CHÚNG TÔI
       </h2>
       <p className="text-[#3E3C63] text-base mb-8">

@@ -57,9 +57,9 @@ const Header = () => {
     { label: 'FAQ', path: '/faq' },
   ];
 
-  return (
-    <header className="relative bg-[#E8F5E9] border-b border-[#000000B2] p-3 px-6 flex items-center justify-between">
-      <div className="text-xl font-bold text-[#4CAF50] flex-shrink-0">Món Quà Nhỏ</div>
+  return (    
+    <header className="relative h-22 bg-[#E8F5E9] border-b border-[#000000B2] p-3 px-4 sm:px-6 flex items-center justify-between z-50">
+      <div className="text-2xl font-bold text-[#4CAF50] flex-shrink-0">Món Quà Nhỏ</div>
 
       <div className="md:hidden">
         <button onClick={() => setMenuOpen(!menuOpen)} className="text-green-600 text-xl">
@@ -82,9 +82,9 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-              <Link
+             <Link
                 to="/post"
-                className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700"
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
               >
                 + Đăng tin
               </Link>
@@ -129,14 +129,7 @@ const Header = () => {
                   Tin đã đăng
                 </Link>
 
-                <Link
-                  to="/history"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Lịch sử cho nhận
-                </Link>
-
+                
                 <Link
                   to="/account-settings"
                   onClick={() => setMenuOpen(false)}
@@ -190,82 +183,75 @@ const Header = () => {
             )}
           </Link>
         ))}
-        <Link
+       <Link
           to="/post"
-          className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
         >
           + Đăng tin
         </Link>
       </nav>
 
-      <div className="hidden md:flex items-center space-x-3 relative">
-        <span className="bg-white text-green-600 rounded-full px-3 py-1 text-sm font-semibold">VN</span>
+      <div className="hidden md:flex items-center space-x-3">
+        <span className="bg-white text-green-600 rounded-full px-3 py-1 text-base font-bold">VN</span>
 
         {isLoggedIn ? (
           <>
             <Link to="/notifications">
-              <img src={Bell} alt="bell" className="w-8 h-8 rounded-full object-cover" />
+              <img src={Bell} alt="bell" className="w-9 h-9 rounded-full object-cover" />
             </Link>
             <Link to="/messages">
-              <img src={Message} alt="message" className="w-8 h-8 rounded-full object-cover" />
+              <img src={Message} alt="message" className="w-9 h-9 rounded-full object-cover" />
             </Link>
 
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center bg-white rounded-full px-2 py-1 shadow gap-2"
-            >
-              <img src={avatar} alt="avatar" className="w-8 h-8 rounded-full object-cover" />
-              <FaChevronDown className="text-green-600" />
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center bg-white rounded-full px-2 py-1 shadow gap-2"
+              >
+                <img src={avatar} alt="avatar" className="w-8 h-8 rounded-full object-cover" />
+                <FaChevronDown className="text-green-600" />
+              </button>
 
-            {dropdownOpen && (
-              <div className="absolute right-0 top-full mt-2 w-60 bg-white rounded-xl shadow-lg z-50 text-sm">
-                <ul className="py-2">
-                  <li
-                    onClick={() => {
-                      navigate(`/profile/${username}`);
-                      setDropdownOpen(false);
-                    }}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img src={AccountIcon} className="w-5 h-5" /> Hồ sơ cá nhân
-                  </li>
-                  <li
-                    onClick={() => {
-                      navigate('/my-posts');
-                      setDropdownOpen(false);
-                    }}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img src={NewsIcon} className="w-5 h-5" /> Tin đã đăng
-                  </li>
-                  <li
-                    onClick={() => {
-                      navigate('/history');
-                      setDropdownOpen(false);
-                    }}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img src={StoryIcon} className="w-5 h-5" /> Lịch sử cho nhận
-                  </li>
-                  <li
-                    onClick={() => {
-                      navigate('/account-settings');
-                      setDropdownOpen(false);
-                    }}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img src={SettingIcon} className="w-5 h-5" /> Cài đặt
-                  </li>
-                  <li
-                    onClick={handleLogout}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <img src={LogoutIcon} className="w-5 h-5" /> Đăng xuất
-                  </li>
-                </ul>
-              </div>
-            )}
+              {dropdownOpen && (
+                <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-lg z-50 text-sm">
+                  <ul className="py-2">
+                    <li
+                      onClick={() => {
+                        navigate(`/profile/${username}`);
+                        setDropdownOpen(false);
+                      }}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <img src={AccountIcon} className="w-5 h-5" /> Hồ sơ cá nhân
+                    </li>
+                    <li
+                      onClick={() => {
+                        navigate('/my-posts');
+                        setDropdownOpen(false);
+                      }}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <img src={NewsIcon} className="w-5 h-5" /> Tin đã đăng
+                    </li>
+                    <li
+                      onClick={() => {
+                        navigate('/account-settings');
+                        setDropdownOpen(false);
+                      }}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <img src={SettingIcon} className="w-5 h-5" /> Cài đặt
+                    </li>
+                    <li
+                      onClick={handleLogout}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <img src={LogoutIcon} className="w-5 h-5" /> Đăng xuất
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </>
         ) : (
           <div className="relative">

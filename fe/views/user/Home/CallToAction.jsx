@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa';
 const CallToAction = () => {
   return (
     <section className="bg-white px-4 py-10 rounded-lg text-center">
-      <h2 className="text-2xl font-bold text-[#29752F]">
+      <h2 className="text-2xl font-bold text-[#2E5E31]">
         Trao đi món đồ cũ, nhận lại niềm vui mới!
       </h2>
       <p className="text-gray-800 leading-relaxed">

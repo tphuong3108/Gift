@@ -33,17 +33,13 @@ const ChatInput = ({ onSend }) => {
 
   return (
     <div className="p-2 sm:p-4 border-t bg-white">
-      {/* input + icon */}
       <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-3">
-        {/* Icons */}
         <div className="flex gap-2">
           <button><img src={File} alt="file" className="w-6 h-6" /></button>
           <button><img src={Img} alt="img" className="w-6 h-6" /></button>
           <button><img src={Gif_1} alt="gif_1" className="w-6 h-6" /></button>
           <button><img src={Gif} alt="gif" className="w-6 h-6" /></button>
         </div>
-
-        {/* Text input */}
         <input
           type="text"
           value={input}
@@ -53,18 +49,16 @@ const ChatInput = ({ onSend }) => {
           className="flex-1 min-w-[150px] border rounded-full px-4 py-2 focus:outline-none"
         />
 
-        {/* Emoji & Like */}
         <div className="flex gap-2">
           <button onClick={() => setEmojiPickerVisible(!emojiPickerVisible)}>
             <img src={Icon} alt="emoji" className="w-6 h-6" />
           </button>
           <button>
-            <img src={Like} alt="like" className="w-6 h-6" />
+            <img src={Like} alt="like" className="w-5 h-6" />
           </button>
         </div>
       </div>
 
-      {/* Emoji picker */}
       {emojiPickerVisible && (
         <div className="flex gap-2 mb-3">
           {['😊', '😂', '😍', '😎', '❤️'].map((emo) => (
@@ -75,7 +69,6 @@ const ChatInput = ({ onSend }) => {
         </div>
       )}
 
-      {/* Quick replies */}
       <div className="flex flex-wrap gap-2">
         {quickReplies.map((q, i) => (
           <button

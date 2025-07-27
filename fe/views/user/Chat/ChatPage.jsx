@@ -36,7 +36,6 @@ const ChatPage = ({ user, product, onBack }) => {
           </button>
         )}
 
-        {/* Thông tin sidebar */}
         <div
           className={`transition-transform duration-300 fixed top-0 right-0 h-full bg-white z-50 shadow-lg overflow-y-auto w-full max-w-full sm:w-[300px] ${
             isInfoVisible ? 'translate-x-0' : 'translate-x-full'
@@ -53,10 +52,9 @@ const ChatPage = ({ user, product, onBack }) => {
           </div>
         </div>
 
-        {/* Hiển thị sản phẩm nếu có */}
         {product && (
-          <div className="p-4">
-            <div className="bg-white px-4 py-3 flex gap-4 rounded-md items-center shadow-sm">
+         <div className="w-full flex justify-center p-4">
+            <div className="bg-white px-4 py-3 flex gap-4 rounded-2xl items-center shadow-md w-full max-w-xl">
               <img
                 src={product.images?.[0] || product.img?.[0]}
                 alt="product"
@@ -67,19 +65,16 @@ const ChatPage = ({ user, product, onBack }) => {
                 <ul className="list-disc list-inside">
                   <li>{product.name}</li>
                   <li>{product.details?.[1]}</li>
-                  <li>{product.details?.[2]}</li>
                 </ul>
               </div>
             </div>
           </div>
         )}
 
-        {/* Tin nhắn */}
         <div className="flex-1 overflow-y-auto p-4">
           <ChatMessages messages={messages} />
         </div>
 
-        {/* Nhập tin nhắn */}
         <ChatInput onSend={handleSendMessage} />
       </div>
     </div>

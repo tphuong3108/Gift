@@ -7,7 +7,7 @@ import WhyChooseUs from './WhyChooseUs';
 import UserStories from './UserStories';
 import CallToAction from './CallToAction';
 import PopularCategories from './PopularCategories';
-import Categories from './categories';
+import Categories from './Categories';
 import search from '../../../src/assets/img/search.png';
 import camera from '../../../src/assets/img/camera.png';
 

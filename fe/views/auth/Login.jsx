@@ -24,15 +24,15 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    alert("Google login click");
+    alert('Google login click');
   };
 
   const handleFacebookLogin = () => {
-    alert("Facebook login click");
+    alert('Facebook login click');
   };
 
   return (
-      <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm">
+    <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm">
       <h1 className="text-green-600 text-2xl font-bold text-center mb-1">Món Quà Nhỏ</h1>
       <p className="text-center mb-6 font-medium">Đăng nhập</p>
 
@@ -53,19 +53,26 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <img
-            src={showPassword ? Eye : Eye1}
-            alt="Toggle"
-            onClick={() => setShowPassword(!showPassword)}
-            className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-          />
+          {showPassword && (
+            <img
+              src={Eye}
+              alt="Ẩn mật khẩu"
+              onClick={() => setShowPassword(false)}
+              className="w-[20px] h-[195px] object-contain absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+            />
+          )}
+          {!showPassword && (
+            <img
+              src={Eye1}
+              alt="Hiện mật khẩu"
+              onClick={() => setShowPassword(true)}
+              className="w-[17px] h-[17px] object-contain absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+            />
+          )}
         </div>
 
         <div className="flex justify-end text-xs">
-          <Link
-            to="/forgot-password"
-            className="text-green-600 hover:underline"
-          >
+          <Link to="/forgot-password" className="text-green-600 hover:underline">
             Quên mật khẩu?
           </Link>
         </div>
@@ -87,6 +94,7 @@ const Login = () => {
           </div>
           <div className="relative bg-white px-3 text-sm text-gray-500">Hoặc</div>
         </div>
+
         <div className="flex justify-between gap-3">
           <button
             onClick={handleGoogleLogin}
@@ -105,11 +113,15 @@ const Login = () => {
           </button>
         </div>
 
-
         <p className="text-sm text-center mt-6">
           Chưa có tài khoản?{' '}
-          <Link to="/register" className="text-green-600 font-medium">Đăng ký ngay</Link><br />
-          <Link to="/" className="text-green-500 mt-2 inline-block">Trở về trang chủ</Link>
+          <Link to="/register" className="text-green-600 font-medium">
+            Đăng ký ngay
+          </Link>
+          <br />
+          <Link to="/" className="text-green-500 mt-2 inline-block">
+            Trở về trang chủ
+          </Link>
         </p>
       </form>
     </div>

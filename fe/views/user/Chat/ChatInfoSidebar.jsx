@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { User, Bell, Search, ChevronDown } from 'lucide-react';
+import {ChevronDown } from 'lucide-react';
 import Avatar from '../../../src/assets/img/avatar.png';
+import Search from '../../../src/assets/img/Search_2.png';
+import User from '../../../src/assets/img/user.png';
+import Bell from '../../../src/assets/img/Bell_2.png';
 
 const ChatInfoSidebar = () => {
   const [sections, setSections] = useState({
@@ -22,15 +25,15 @@ const ChatInfoSidebar = () => {
         <p className="text-sm text-gray-500 mb-4">Trực tuyến 9 phút trước</p>
         <div className="flex justify-center gap-6 mb-6">
           <div className="flex flex-col items-center text-sm text-gray-700">
-            <User size={20} />
+             <img src={User} alt="Hồ sơ" className="w-7 h-7" />
             <span>Xem hồ sơ</span>
           </div>
           <div className="flex flex-col items-center text-sm text-gray-700">
-            <Bell size={20} />
+            <img src={Bell} alt="Thông báo" className="w-7 h-7" />
             <span>Thông báo</span>
           </div>
           <div className="flex flex-col items-center text-sm text-gray-700">
-            <Search size={20} />
+             <img src={Search} alt="Tìm kiếm" className="w-7 h-7" />
             <span>Tìm kiếm</span>
           </div>
         </div>

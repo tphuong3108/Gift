@@ -30,13 +30,13 @@ const ProgramIntro = () => {
 
   return (
     <section className="bg-[#E8F5E9] py-12 px-4 sm:px-8 rounded-lg">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        
+      <div className="container mx-auto px-2 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"> 
         <div>
           <h3 className="text-sm text-green-700 uppercase font-semibold tracking-widest mb-2">
             Các chương trình
           </h3>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1B4332] leading-snug mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2E5E31] leading-snug mb-4">
+
             Tình Nguyện Vì Một Thế Giới <br /> Tốt Đẹp Hơn
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -48,11 +48,11 @@ const ProgramIntro = () => {
           {stats.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center">
             <div className="h-16 w-16 rounded-full flex items-center justify-center mb-3">
-                <img src={item.icon} alt={item.label} className="h-8 w-8" />
+              <img src={item.icon} alt={item.label} className="h-17 w-26 mb-4" />
               </div>
-              <p className="text-2xl font-bold text-[#362465]">{item.number}</p>
-              <p className="text-sm text-gray-600">{item.label}</p>
-            </div>
+                <p className="text-2xl font-bold text-[#362465]">{item.number}</p>
+                <p className="text-sm text-gray-600">{item.label}</p>
+              </div>
           ))}
         </div>
       </div>

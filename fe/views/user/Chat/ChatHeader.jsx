@@ -2,15 +2,19 @@ import React from 'react';
 import Avatar from '../../../src/assets/img/avatar.png';
 import Information from '../../../src/assets/img/information.png';
 import Call from '../../../src/assets/img/call.png';
+import Active from '../../../src/assets/img/active.png';
 
 const ChatHeader = ({ user, toggleInfo }) => {
   return (
-    <div className="flex items-center justify-between p-4 border-b bg-white">
-      <div className="flex items-center gap-3">
-        <img src={Avatar} alt="avatar" className="w-10 h-10 rounded-full" />
+    <div className="flex items-center justify-between p-4 shadow bg-white">
+      <div className="flex items-center gap-3 relative">
+        <div className="relative w-10 h-10">
+            <img src={Avatar} alt="avatar" className="w-10 h-10 rounded-full" />
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+          </div>
         <div>
           <p className="font-semibold">{user?.name}</p>
-          <p className="text-xs text-gray-500">Đang hoạt động</p>
+          <p className="text-xs text-gray-500">Active</p>
         </div>
       </div>
 
@@ -24,7 +28,7 @@ const ChatHeader = ({ user, toggleInfo }) => {
         <img
           src={Information}
           alt="Thông tin"
-          className="w-12 h-12 cursor-pointer"
+          className="w-13 h-13 cursor-pointer"
           onClick={toggleInfo}
         />
       </div>
@@ -32,30 +36,4 @@ const ChatHeader = ({ user, toggleInfo }) => {
   );
 };
 
-// const ChatHeader = ({ user, toggleInfo }) => {
-//   return (
-//     <div className="bg-white px-4 py-3 flex items-center justify-between shadow-sm border-b">
-//       <div className="flex items-center gap-3">
-//         <img
-//           src={user?.avatar || '/default-avatar.png'}
-//           alt="avatar"
-//           className="w-10 h-10 rounded-full object-cover"
-//         />
-//         <div>
-//           <p className="font-semibold text-gray-800">{user?.name}</p>
-//           <p className="text-xs text-gray-500">Đang hoạt động</p>
-//         </div>
-//       </div>
-
-//       <button
-//         onClick={toggleInfo}
-//         className="text-green-600 text-sm hover:underline"
-//       >
-//         Xem thêm
-//       </button>
-//     </div>
-//   );
-// };
-
 export default ChatHeader;
-

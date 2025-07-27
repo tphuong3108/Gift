@@ -10,8 +10,8 @@ const AllProducts = () => {
 
   return (
     <div className="bg-[#E8F5E9] p-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-10"> 
       <h2 className="text-2xl font-bold text-green-700 mb-6">TẤT CẢ SẢN PHẨM</h2>
-
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
@@ -32,6 +32,7 @@ const AllProducts = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

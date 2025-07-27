@@ -21,7 +21,7 @@ const ChatLayout = () => {
   }, []);
 
   useEffect(() => {
-    const username = searchParams.get('user'); // đây là username (ví dụ: "HIKO")
+    const username = searchParams.get('user'); 
     const productId = searchParams.get('product');
 
     if (username) {

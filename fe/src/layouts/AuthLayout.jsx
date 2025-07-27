@@ -14,13 +14,13 @@ const AuthLayout = () => {
             <img src={Logo} alt="Logo" className="w-60" />
           </div>
 
-          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-6">
+          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-6 min-h-screen">
             <Outlet />
           </div>
         </>
       ) : (
         <>
-          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-6">
+          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-6 min-h-screen">
             <Outlet />
           </div>
 

@@ -31,7 +31,7 @@ const Community = () => {
   return (
     <section className="bg-A5A5A5 p-6 rounded-lg mb-6">
       <div className="container mx-auto px-2">
-      <h2 className="text-3xl font-bold text-[#29752F] text-center">CỘNG ĐỒNG</h2>
+      <h2 className="text-3xl font-bold text-[#2E5E31] text-center">CỘNG ĐỒNG</h2>
       <p className="text-gray-600 text-center mb-6">
         Kết nối với cộng đồng những người yêu thích chia sẻ và lan tỏa yêu thương
       </p>

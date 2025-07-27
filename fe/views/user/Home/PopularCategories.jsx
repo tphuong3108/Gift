@@ -7,10 +7,10 @@ const PopularCategories = () => {
 
   return (
     <section className="bg-[#F8F9F9] py-10 rounded-lg mb-10">
-      <div className="container mx-auto px-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-10"> 
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-4xl font-bold text-[#29752F]">Sản phẩm phổ biến</h2>
+            <h2 className="text-4xl font-bold text-[#2E5E31]">Sản phẩm phổ biến</h2>
             <p className="text-gray-600 text-sm">
               Đây là danh sách các sản phẩm phổ biến nhất
             </p>
