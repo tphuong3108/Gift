@@ -30,7 +30,7 @@ const PostPage = () => {
 
   return (
     <div className="min-h-screen bg-[#E8F5E9] p-6 flex justify-center">
-      <div className="bg-white p-6 rounded-lg w-full max-w-3xl shadow">
+      <div className="bg-white p-6 rounded-lg w-full max-w-3xl shadow-none"> 
         <PostTitle />
         <form className="space-y-6">
           <PostBasicInfo form={form} handleChange={handleChange} />

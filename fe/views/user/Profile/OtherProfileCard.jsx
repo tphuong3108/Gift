@@ -13,25 +13,26 @@ import MapIcon from '../../../src/assets/img/map2.png';
 import FB from '../../../src/assets/img/facebook.png';
 import Zalo from '../../../src/assets/img/zalo.png';
 import Gmail from '../../../src/assets/img/mail.png';
+import AvatarFrame from '../../../src/assets/img/avatar_3.png';  
+import Border from '../../../src/assets/img/border.png';  
 import Report from './Report';
 
 const OtherProfileCard = ({ user }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [showReport, setShowReport] = useState(false); 
+  const [showReport, setShowReport] = useState(false);
 
   return (
-    <div className="relative w-full bg-white rounded-xl shadow-md p-4 pt-6 text-center">
+    <div className="relative w-full max-w-full bg-white rounded-3xl shadow-xl overflow-hidden pb-6 text-center mx-auto">
       {showReport && <Report onClose={() => setShowReport(false)} />}
+      
       <div className="absolute top-4 right-4 z-50">
         <button
           onClick={() => setDropdownVisible(!dropdownVisible)}
-          className="bg-white rounded-full shadow p-1"
         >
-          <img src={MoreIcon} alt="More" className="w-5 h-5" />
+          <img src={MoreIcon} alt="More" className="w-7 h-7" />
         </button>
-
         {dropdownVisible && (
-          <div className="absolute top-full right-0 mt-2 w-52 bg-white rounded-xl shadow-lg text-sm border z-50">
+          <div className="absolute top-full right-0 mt-2 w-52 bg-white rounded-xl shadow-lg text-sm z-50">
             <ul className="py-2">
               <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
                 <img src={ShareIcon} className="w-4 h-4" />
@@ -56,51 +57,75 @@ const OtherProfileCard = ({ user }) => {
         )}
       </div>
 
-      <div className="w-24 h-24 mx-auto rounded-full border-[4px] border-green-500 overflow-hidden mt-2">
-        <img src={user.avatar} alt="Avatar" className="w-full h-full object-cover" />
+      <div className="relative w-full max-w-full bg-white rounded-3xl overflow-hidden pb-6 text-center mx-auto">
+        <div className="w-full h-28 bg-[#D9D9D9] rounded-t-3xl relative">
+          <div className="absolute -bottom-12 left-[20px] w-32 h-32 z-20">
+            <div className="w-full h-full rounded-full relative">
+              <div className="absolute top-0 left-0 w-full h-full border-2 border-green-600 rounded-full z-10"></div>
+              <img
+                src={user.avatar}
+                alt="Avatar"
+                className="w-full h-full object-cover rounded-full"
+              />
+              <img
+                src={AvatarFrame}
+                alt="avatar frame"
+                className="w-36 h-36 absolute -top-2 left-9 z-20 "
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-16 px-6 w-full">
+          <h2 className="text-xl font-bold text-green-700 text-left">{user.name}</h2>
+          <div className="flex items-center gap-6 mt-1 mb-4 text-green-600 font-medium text-sm text-left">
+            <span className="flex items-center gap-1">
+              <img src={Followers} alt="Followers" className="w-4 h-4" />
+              {user.followers}
+            </span>
+            <span className="flex items-center gap-1">
+              <img src={Projects} alt="Projects" className="w-4 h-4" />
+              {user.productsSold}
+            </span>
+            <button className="px-5 py-2 bg-[#18A661] text-white rounded-full flex items-center gap-2 justify-center text-sm hover:bg-green-700 transition">
+              Theo dõi
+              <img src={Plus} className="w-4 h-4" alt="Follow" />
+            </button>
+          </div>
+
+          <div className="text-left text-sm text-black space-y-2">
+            <p className="flex items-center gap-2">
+              <img src={MsgIcon} className="w-4 h-4" />
+              Phản hồi chat: 95% (Trong 18 phút)
+            </p>
+            <p className="flex items-center gap-2">
+              <img src={CalendarIcon} className="w-4 h-4" />
+              Đã tham gia: 1 ngày
+            </p>
+            <p className="flex items-center gap-2">
+              <img src={ParticipateIcon} className="w-4 h-4" />
+              Đã tham gia: 1 ngày
+            </p>
+            <p className="flex items-center gap-2">
+              <img src={MapIcon} className="w-4 h-4" />
+              Địa chỉ: {user.location}
+            </p>
+          </div>
+
+          <div className="flex justify-center items-center gap-6 mt-6">
+            <img src={FB} alt="Facebook" className="w-6 h-6" />
+            <img src={Zalo} alt="Zalo" className="w-9 h-6 object-contain" />
+            <img src={Gmail} alt="Gmail" className="w-6 h-6" />
+          </div>
+        </div>
       </div>
 
-      <h2 className="mt-3 text-xl font-bold text-green-700">{user.name}</h2>
-
-      <div className="flex justify-center items-center gap-6 my-2 text-green-600 font-medium">
-        <span className="flex items-center gap-1 text-sm">
-          <img src={Followers} className="w-4 h-4" />
-          {user.followers}
-        </span>
-        <span className="flex items-center gap-1 text-sm">
-          <img src={Projects} className="w-4 h-4" />
-          {user.productsSold}
-        </span>
-      </div>
-
-      <button className="mt-2 px-5 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 flex items-center gap-2 justify-center mx-auto text-sm">
-        <img src={Plus} className="w-4 h-4" alt="Follow" />
-        Theo dõi
-      </button>
-
-      <div className="mt-4 text-left text-sm text-gray-700 space-y-2">
-        <p className="flex items-center gap-2">
-          <img src={MsgIcon} className="w-4 h-4" />
-          Phản hồi chat: 95% (Trong 18 phút)
-        </p>
-        <p className="flex items-center gap-2">
-          <img src={CalendarIcon} className="w-4 h-4" />
-          Đã tham gia: 1 ngày
-        </p>
-        <p className="flex items-center gap-2">
-          <img src={ParticipateIcon} className="w-4 h-4" />
-          Đã tham gia: 1 ngày
-        </p>
-        <p className="flex items-center gap-2">
-          <img src={MapIcon} className="w-4 h-4" />
-          Địa chỉ: {user.location}
-        </p>
-      </div>
-
-      <div className="flex justify-center gap-4 mt-4">
-        <img src={FB} alt="Facebook" className="w-6 h-6" />
-        <img src={Zalo} alt="Zalo" className="w-9 h-6 object-contain" />
-        <img src={Gmail} alt="Gmail" className="w-6 h-6" />
+      <div className="absolute bottom-0 left-0 w-full">
+        <img
+          src={Border}
+          alt="Bottom Border"
+          className="w-full h-auto z-10 pointer-events-none"
+        />
       </div>
     </div>
   );

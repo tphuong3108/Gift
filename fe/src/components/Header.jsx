@@ -60,7 +60,6 @@ const Header = () => {
   return (    
     <header className="relative h-22 bg-[#E8F5E9] border-b border-[#000000B2] p-3 px-4 sm:px-6 flex items-center justify-between z-50">
       <div className="text-2xl font-bold text-[#4CAF50] flex-shrink-0">Món Quà Nhỏ</div>
-
       <div className="md:hidden">
         <button onClick={() => setMenuOpen(!menuOpen)} className="text-green-600 text-xl">
           {menuOpen ? <FaTimes /> : <FaBars />}

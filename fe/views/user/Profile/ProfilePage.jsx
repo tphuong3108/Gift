@@ -36,37 +36,36 @@ const ProfilePage = () => {
   const isOwner = currentUser?.username === user.username;
 
   return (
-  <>
-    <div className="flex flex-col md:flex-row bg-white min-h-screen w-full px-4 py-6 gap-6">
-      <div className="w-full md:w-[20%] flex flex-col items-center gap-4 h-full">
-        {isOwner ? (
-          <MyProfileCard user={user} />
-        ) : (
-          <OtherProfileCard user={user} />
-        )}
-        <AdCard />
+    <> 
+      <div className="flex flex-col md:flex-row bg-white min-h-screen w-full px-6 py-6 gap-8">
+        <div className="w-full md:w-[21%] flex flex-col items-start gap-6 max-w-7xl mx-auto">
+          {isOwner ? (
+            <MyProfileCard user={user} />
+          ) : (
+            <OtherProfileCard user={user} />
+          )}
+          <AdCard />
+        </div>
+
+        <div className="w-full md:w-[70%]">
+          <ProductSection
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            products={productsToShow}
+            isOwner={isOwner}
+            onProductClick={setSelectedProduct}
+          />
+        </div>
       </div>
 
-      <div className="w-full md:w-[80%]">
-        <ProductSection
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          products={productsToShow}
-          isOwner={isOwner}
-          onProductClick={setSelectedProduct}
+      {selectedProduct && (
+        <ProductDetailPopup
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
-      </div>
-    </div>
-
-    {/* Popup chi tiết sản phẩm */}
-    {selectedProduct && (
-      <ProductDetailPopup
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-      />
-    )}
-  </>
-);
-}
+      )}
+    </>
+  );
+};
 
 export default ProfilePage;

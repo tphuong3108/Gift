@@ -16,42 +16,38 @@ const HorizontalSlider = ({ title, items, renderItem }) => {
 
   return (
     <div className="relative mb-10">
-      <h3 className="text-xl font-bold text-green-800 mb-4">{title}</h3>
+      <h3 className="text-2xl font-bold text-[#047857] mb-4">{title}</h3>
+
 
       <div className="relative">
+        <button
+          onClick={() => scroll("left")}
+          className="z-10 bg-white border shadow rounded-full p-2 text-green-700 hover:bg-gray-100 absolute left-2 top-1/2 -translate-y-1/2"
+        >
+          <FaChevronLeft />
+        </button>
         <div
           ref={scrollRef}
-          className="flex space-x-4 scroll-smooth px-2 overflow-hidden"
+          className="flex overflow-x-auto scroll-smooth space-x-4 px-6 py-2"
           style={{
-            scrollbarWidth: "none", // Firefox
-            msOverflowStyle: "none", // IE/Edge
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {items.map((item, i) => (
-            <div
-              key={i}
-              className="min-w-[250px] max-w-[250px] shrink-0"
-            >
+            <div key={i} className="w-[300px] shrink-0">
               {renderItem(item)}
             </div>
           ))}
         </div>
-
-        {/* Custom Scroll Buttons */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border shadow rounded-full p-2 text-green-700 hover:bg-gray-100"
-        >
-          <FaChevronLeft />
-        </button>
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border shadow rounded-full p-2 text-green-700 hover:bg-gray-100"
+          className="z-10 bg-white border shadow rounded-full p-2 text-green-700 hover:bg-gray-100 absolute -right-2 top-1/2 -translate-y-1/2"
         >
           <FaChevronRight />
         </button>
       </div>
-    </div>
+        </div>
   );
 };
 

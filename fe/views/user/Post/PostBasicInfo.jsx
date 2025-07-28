@@ -10,7 +10,7 @@ const PostBasicInfo = ({ form, handleChange }) => (
         placeholder="VD: Quần áo, đồ chơi…."
         value={form.title}
         onChange={handleChange}
-        className="w-full border rounded px-4 py-2 text-sm"
+        className="w-full border-[1px] border-[#A7F3D0] rounded px-4 py-2 text-sm"  
       />
     </div>
     <div>
@@ -21,7 +21,7 @@ const PostBasicInfo = ({ form, handleChange }) => (
         value={form.description}
         onChange={handleChange}
         rows={3}
-        className="w-full border rounded px-4 py-2 text-sm"
+        className="w-full border-[1px] border-[#A7F3D0] rounded px-4 py-2 text-sm" 
       />
     </div>
   </>

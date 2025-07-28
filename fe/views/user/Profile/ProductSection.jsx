@@ -3,12 +3,13 @@ import ProductCard from '../../../src/components/Product/ProductCard';
 
 const ProductSection = ({ selectedTab, setSelectedTab, products, isOwner, onProductClick }) => (
   <>
-    <div className="flex gap-8 mb-4 border-b border-gray-200">
+    {/* Thanh điều hướng */}
+    <div className="flex gap-8 mb-4 border-b border-gray-200 justify-start">
       {['displaying', 'given'].map((tab) => (
         <button
           key={tab}
           className={`py-2 font-semibold ${
-            selectedTab === tab ? 'border-b-4 border-green-600 text-green-600' : 'text-gray-500'
+            selectedTab === tab ? 'border-b-4 border-black text-black' : 'text-gray-500'
           }`}
           onClick={() => setSelectedTab(tab)}
         >
@@ -17,18 +18,27 @@ const ProductSection = ({ selectedTab, setSelectedTab, products, isOwner, onProd
       ))}
     </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {products.length > 0 ? (
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} isOwner={isOwner}  onClick={() => onProductClick(product)} />
-        ))
-      ) : (
-        <p className="col-span-full text-gray-500">Không có sản phẩm nào.</p>
-      )}
+    {/* Phần hiển thị sản phẩm */}
+    <div className="px-4 py-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 ml-[-1rem]"> {/* Giảm gap và margin-left */}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              isOwner={isOwner}
+              onClick={() => onProductClick(product)}
+              className="shadow-xl rounded-lg"
+            />
+          ))
+        ) : (
+          <p className="col-span-full text-gray-500">Không có sản phẩm nào.</p>
+        )}
+      </div>
     </div>
 
     <div className="flex justify-center mt-6">
-      <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700">
+      <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 shadow-xl">
         XEM THÊM
       </button>
     </div>
