@@ -1,71 +1,99 @@
-import React, { useState } from 'react';
-import ImageSlider from './ImageSlider';
-import CommentList from './CommentList';
-import CommentInput from './CommentInput';
-import { X, ThumbsUp, MessageCircle, Share2 } from 'lucide-react';
+import React from 'react';
+import IconForward from '../../../src/assets/img/icon-forward.png';
+import IconLike from '../../../src/assets/img/icon-like.png';
+import IconMessage from '../../../src/assets/img/icon-message.png';
+import IconBookmark from '../../../src/assets/img/icon-bookmark.png';
+import IconPrev from '../../../src/assets/img/PrevArrow.png';
+import IconNext from '../../../src/assets/img/next.png';
 
-const PostDetailModal = ({ post, onClose }) => {
-  const [comments, setComments] = useState(post.comments || []);
-  const [likes] = useState(post.likes || 0);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const images = post.images || [];
+const PostDetailModal = ({ post, imageIndex, onClose, onPrev, onNext }) => {
+  if (!post) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative">
-
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-600 hover:text-black z-10">
-          <X size={24} />
-        </button>
-
-        <div className="flex-[2] bg-[#4AB262] flex items-center justify-center relative">
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+      <div className="bg-[#4AB262] rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative">
+        <div className="flex-1 bg-black flex items-center justify-center relative">
           <img
-            src={images[selectedImageIndex]}
-            alt={`img-${selectedImageIndex}`}
-            className="object-contain max-h-full max-w-full"
+            src={post.images[imageIndex]}
+            alt={`post-${imageIndex}`}
+            className="h-full w-full object-contain rounded-l-xl"
           />
-          <div className="absolute right-4 top-4 bottom-4 overflow-y-auto space-y-2">
-            {images.map((img, idx) => (
-              <img
-                key={idx}
-                src={img}
-                alt={`thumb-${idx}`}
-                onClick={() => setSelectedImageIndex(idx)}
-                className={`w-16 h-16 rounded border cursor-pointer object-cover ${
-                  selectedImageIndex === idx ? 'ring-2 ring-white' : ''
-                }`}
-              />
-            ))}
-          </div>
+
+          {post.images.length > 1 && (
+            <>
+              <button
+                onClick={onPrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 p-2 rounded-full"
+              >
+                <img src={IconPrev} alt="previous" className="w-4 h-4" />
+              </button>
+              <button
+                onClick={onNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 p-2 rounded-full"
+              >
+                <img src={IconNext} alt="next" className="w-4 h-4" />
+              </button>
+            </>
+          )}
         </div>
 
-        <div className="bg-[#4AB262] w-full lg:w-[350px] p-5 overflow-y-auto flex flex-col">
-          <div className="mb-3">
-            <div className="flex items-center gap-3">
-              <img src={post.user.avatar} alt="avatar" className="w-10 h-10 rounded-full" />
+        {/* Nội dung bên phải */}
+        <div className="w-full lg:w-[360px] bg-[#4AB262] p-5 flex flex-col justify-between overflow-y-auto">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <img src={post.user.avatar} className="w-10 h-10 rounded-full" />
               <div>
-                <p className="font-semibold text-gray-800">{post.user.name}</p>
-                <p className="text-xs text-gray-500">{post.user.role}</p>
+                <p className="font-semibold">{post.user.name}</p>
+                <p className="text-sm text-gray-600">{post.user.role}</p>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-1">{post.time}</p>
-            <p className="mt-2 text-gray-800 text-sm">{post.content}</p>
+            <p className="text-xs text-gray-500 mb-4">{post.time}</p>
+            <p className="text-gray-800 text-sm mb-4">{post.content}</p>
           </div>
 
-          <div className="flex justify-between items-center border-y py-3 text-gray-600 text-sm mb-3">
-            <div className="flex items-center gap-2"><ThumbsUp size={18} /> {likes}</div>
-            <div className="flex items-center gap-2"><MessageCircle size={18} /> {comments.length}</div>
-            <div className="flex items-center gap-2"><Share2 size={18} /> 25</div>
+          {/* Like - Comment - Share - Bookmark */}
+          <div className="flex justify-between text-sm border-y py-2 mb-3 text-gray-800">
+            <div className="flex items-center gap-1">
+              <img src={IconLike} alt="like" className="w-4 h-4" />
+              {post.likes}
+            </div>
+            <div className="flex items-center gap-1">
+              <img src={IconMessage} alt="comment" className="w-4 h-4" />
+              {post.comments}
+            </div>
+            <div className="flex items-center gap-1">
+              <img src={IconForward} alt="share" className="w-4 h-4" />
+              25
+            </div>
+            <div className="flex items-center gap-1">
+              <img src={IconBookmark} alt="bookmark" className="w-4 h-4" />
+            </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto mb-4">
-            <CommentList comments={comments} />
+          <div className="space-y-3 overflow-y-auto flex-1 mb-3">
+            <div className="bg-gray-800 text-white p-3 rounded-md text-sm">
+              <p className="font-semibold mb-1">Mike Johnson</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam nisi, cras neque.</p>
+            </div>
+            <div className="bg-gray-800 text-white p-3 rounded-md text-sm">
+              <p className="font-semibold mb-1">Mike Johnson</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam nisi, cras neque.</p>
+            </div>
           </div>
 
-          <CommentInput
-            onSubmit={(comment) => setComments([...comments, comment])}
+          <textarea
+            placeholder="Viết bình luận..."
+            rows={2}
+            className="w-full p-2 rounded bg-gray-800 text-white text-sm resize-none"
           />
         </div>
+
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 text-white text-2xl font-bold bg-black/40 rounded-full w-8 h-8 flex items-center justify-center"
+        >
+          ×
+        </button>
       </div>
     </div>
   );

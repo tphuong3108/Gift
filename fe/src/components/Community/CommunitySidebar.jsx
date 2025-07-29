@@ -10,7 +10,6 @@ const CommunitySidebar = () => (
     <PeopleSuggestion />
     <UpcomingPrograms />
     <RecentPosts />
-    <TagFilter />
   </div>
 );
 export default CommunitySidebar;

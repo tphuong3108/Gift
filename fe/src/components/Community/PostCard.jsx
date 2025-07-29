@@ -1,5 +1,8 @@
 import React from 'react';
-import { Heart, MessageCircle, Share2, Bookmark } from 'lucide-react';
+import IconLike from '../../assets/img/icon-like.png';
+import IconMessage from '../../assets/img/icon-message.png';
+import IconForward from '../../assets/img/icon-forward.png';
+import IconBookmark from '../../assets/img/icon-bookmark.png';
 
 const PostCard = ({ post, onClick }) => {
   const images = post.images || [];
@@ -28,19 +31,19 @@ const PostCard = ({ post, onClick }) => {
         <div
           className={`mb-4 ${
             images.length === 3
-              ? 'grid grid-cols-3 gap-2 grid-rows-2'
+              ? 'grid grid-cols-3 grid-rows-2'
               : images.length === 1
               ? 'grid grid-cols-1'
-              : 'grid grid-cols-2 gap-2'
+              : 'grid grid-cols-2'
           }`}
         >
           {images.length === 3 ? (
             <>
               <div className="row-span-2 col-span-2">
-                <img src={images[0]} alt="img-0" className="w-full h-full object-cover rounded" />
+                <img src={images[0]} alt="img-0" className="w-full h-full object-cover" />
               </div>
-              <img src={images[1]} alt="img-1" className="w-full h-full object-cover rounded" />
-              <img src={images[2]} alt="img-2" className="w-full h-full object-cover rounded" />
+              <img src={images[1]} alt="img-1" className="w-full h-full object-cover" />
+              <img src={images[2]} alt="img-2" className="w-full h-full object-cover" />
             </>
           ) : (
             images.slice(0, 4).map((img, i) => (
@@ -48,11 +51,11 @@ const PostCard = ({ post, onClick }) => {
                 <img
                   src={img}
                   alt={`post-image-${i}`}
-                  className="w-full h-48 object-cover rounded"
+                  className="w-full h-48 object-cover"
                 />
                 {i === 3 && images.length > 4 && (
-                  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center rounded text-white font-bold text-lg">
-                    +{images.length - 4}
+                  <div className="absolute inset-0 bg-white/60 flex items-center justify-center text-white font-bold text-3xl">
+                    {images.length - 4}+
                   </div>
                 )}
               </div>
@@ -64,19 +67,23 @@ const PostCard = ({ post, onClick }) => {
       <div className="flex items-center justify-between text-gray-600 text-sm border-t pt-3">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">
-            <Heart size={16} />
+            <img src={IconLike} alt="like" className="w-7 h-7" />
             {post.likes}
           </div>
           <div className="flex items-center gap-1">
-            <MessageCircle size={16} />
+            <img src={IconMessage} alt="comment" className="w-7 h-7" />
             {post.comments}
           </div>
           <div className="flex items-center gap-1">
-            <Share2 size={16} />
+            <img src={IconForward} alt="share" className="w-7 h-7" />
             {post.shares}
           </div>
         </div>
-        <Bookmark size={18} className="cursor-pointer" />
+        <img
+          src={IconBookmark}
+          alt="bookmark"
+          className="w-7 h-7 cursor-pointer"
+        />
       </div>
     </div>
   );

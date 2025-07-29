@@ -1,10 +1,9 @@
 import React from 'react';
-import { Image, Video, Calendar, Pencil } from 'lucide-react';
-import Avatar from '../../assets/img/avatar_1.png'
-// import Avatar from '../../assets/img/avatar_1.png'
-// import Avatar from '../../assets/img/avatar_1.png'
-// import Avatar from '../../assets/img/avatar_1.png'
-// import Avatar from '../../assets/img/avatar_1.png'
+import Avatar from '../../assets/img/avatar_1.png';
+import ImageIcon from '../../assets/img/Image_4.png';
+import VideoIcon from '../../assets/img/Video.png';
+import CalendarIcon from '../../assets/img/Calendar_2.png';
+import PencilIcon from '../../assets/img/Pencil.png';
 
 const ShareBar = () => {
   return (
@@ -22,18 +21,41 @@ const ShareBar = () => {
         />
       </div>
 
-      <div className="flex justify-around text-sm text-green-700 font-medium">
-        <div className="flex items-center gap-1 cursor-pointer hover:underline">
-          <Image size={16} /> Hình ảnh
+      <div className="flex justify-around text-sm font-medium text-green-700">
+        <div className="flex items-center gap-1 cursor-pointer group">
+          <img
+            src={ImageIcon}
+            alt="image"
+            className="w-5 h-5 group-hover:scale-110 transition-transform duration-150"
+          />
+          Hình ảnh
         </div>
-        <div className="flex items-center gap-1 cursor-pointer hover:underline">
-          <Video size={16} /> Video
+
+        <div className="flex items-center gap-1 cursor-pointer group">
+          <img
+            src={VideoIcon}
+            alt="video"
+            className="w-6 h-6 group-hover:scale-110 transition-transform duration-150"
+          />
+          Video
         </div>
-        <div className="flex items-center gap-1 cursor-pointer hover:underline">
-          <Calendar size={16} /> Sự kiện
+
+        <div className="flex items-center gap-1 cursor-pointer group text-green-700">
+          <img
+            src={CalendarIcon}
+            alt="calendar"
+            className="w-5 h-5 group-hover:scale-110 transition-transform duration-150"
+          />
+          Sự kiện
         </div>
-        <div className="flex items-center gap-1 cursor-pointer hover:underline">
-          <Pencil size={16} /> Bài viết
+
+        <div className="flex items-center gap-1 cursor-pointer group">
+          <img
+            src={PencilIcon}
+            alt="pencil"
+            className="w-6 h-6 group-hover:scale-110 transition-transform duration-150"
+          />
+          Bài viết
         </div>
       </div>
     </div>

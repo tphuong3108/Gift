@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Avatar from '../../../src/assets/img/avatar.png';
 import More from '../../../src/assets/img/more_2.png';
 import NewMessage from '../../../src/assets/img/NewMessage.png';
-import ImageIcon from '../../../src/assets/img/image_3.png';
+import ImageIcon from '../../../src/assets/img/SVG.png';
 
 const ChatSidebar = ({ onSelectUser }) => {
   const [selectedUserId, setSelectedUserId] = useState(null); 
