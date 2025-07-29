@@ -38,12 +38,12 @@ const DonationSteps = () => {
   ];
 
   return (
-    <div className="bg-[#E8F5E9] py-12 px-4 sm:px-8 rounded-lg">
+    <div className="bg-[#E8F5E9] py-12 px-4 sm:px-8 rounded-lg font-[Inter]">
 
       <h2 className="text-3xl font-bold text-center text-[#2E5E31]">
         CÁCH THỨC QUYÊN GÓP
       </h2>
-      <p className="text-center text-gray-600 mb-6">
+      <p className="font-[Inter] text-center text-gray-600 mb-6">
         Khám phá các danh mục món đồ được chia sẻ nhiều nhất trong cộng đồng
       </p>
 
@@ -63,7 +63,7 @@ const DonationSteps = () => {
               />
             </div>
             <p className="font-semibold text-base">{step.title}</p>
-            <p className="text-sm mt-1 max-w-[200px]">{step.desc}</p>
+            <p className="text-sm mt-3 max-w-[200px]">{step.desc}</p>
           </div>
         ))}
       </div>

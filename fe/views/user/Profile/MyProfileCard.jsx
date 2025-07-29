@@ -9,7 +9,6 @@ import SettingIcon from '../../../src/assets/img/settings.png';
 import MsgIcon from '../../../src/assets/img/mess.png';
 import CalendarIcon from '../../../src/assets/img/calendar.png';
 import ParticipateIcon from '../../../src/assets/img/participate.png';
-import AvatarFrame from '../../../src/assets/img/avatar_3.png';
 import Border from '../../../src/assets/img/border.png';
 import MapIcon from '../../../src/assets/img/map2.png';
 import Followers from '../../../src/assets/img/Followers.png';
@@ -26,11 +25,6 @@ const MyProfileCard = ({ user }) => {
                 src={user.avatar}
                 alt="Avatar"
                 className="w-full h-full object-cover rounded-full"
-              />
-              <img
-                src={AvatarFrame}
-                alt="avatar"
-                className="w-34 h-34 absolute -top-1 left-9 z-20 "
               />
             </div>
           </div>

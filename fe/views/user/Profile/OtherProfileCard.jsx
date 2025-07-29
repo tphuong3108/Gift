@@ -13,7 +13,6 @@ import MapIcon from '../../../src/assets/img/map2.png';
 import FB from '../../../src/assets/img/facebook.png';
 import Zalo from '../../../src/assets/img/zalo.png';
 import Gmail from '../../../src/assets/img/mail.png';
-import AvatarFrame from '../../../src/assets/img/avatar_3.png';  
 import Border from '../../../src/assets/img/border.png';  
 import Report from './Report';
 
@@ -66,11 +65,6 @@ const OtherProfileCard = ({ user }) => {
                 src={user.avatar}
                 alt="Avatar"
                 className="w-full h-full object-cover rounded-full"
-              />
-              <img
-                src={AvatarFrame}
-                alt="avatar frame"
-                className="w-36 h-36 absolute -top-2 left-9 z-20 "
               />
             </div>
           </div>

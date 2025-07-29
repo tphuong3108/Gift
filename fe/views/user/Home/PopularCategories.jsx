@@ -10,8 +10,8 @@ const PopularCategories = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-10"> 
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-4xl font-bold text-[#2E5E31]">Sản phẩm phổ biến</h2>
-            <p className="text-gray-600 text-sm">
+            <h2 className="text-4xl font-bold text-[#2E5E31] mb-2">Sản phẩm phổ biến</h2>
+            <p className="font-[Inter] text-gray-600 text-m">
               Đây là danh sách các sản phẩm phổ biến nhất
             </p>
           </div>

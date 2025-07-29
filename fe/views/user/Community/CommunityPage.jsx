@@ -41,7 +41,6 @@ const CommunityPage = () => {
         </div>
       </div>
 
-      {/* Modal chi tiết bài viết */}
       {selectedPost && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-[#4AB262] rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative">
@@ -59,7 +58,6 @@ const CommunityPage = () => {
                 alt={`post-${imageIndex}`}
                 className="h-full w-full object-contain rounded-l-xl"
               />
-              {/* Navigation */}
               {selectedPost.images.length > 1 && (
                 <>
                   <button onClick={handlePrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 p-2 rounded-full text-white">
@@ -86,7 +84,6 @@ const CommunityPage = () => {
                 <p className="text-gray-800 text-sm mb-4">{selectedPost.content}</p>
               </div>
 
-              {/* Like - Comment - Share */}
               <div className="flex justify-between text-sm border-y py-2 mb-3 text-gray-800">
                 <div className="flex items-center gap-1">
                   <ThumbsUp size={16} /> {selectedPost.likes}
@@ -99,7 +96,6 @@ const CommunityPage = () => {
                 </div>
               </div>
 
-              {/* Bình luận giả lập */}
               <div className="space-y-3 overflow-y-auto flex-1 mb-3">
                 <div className="bg-gray-800 text-white p-3 rounded-md text-sm">
                   <p className="font-semibold mb-1">Mike Johnson</p>
@@ -111,7 +107,6 @@ const CommunityPage = () => {
                 </div>
               </div>
 
-              {/* Nhập bình luận */}
               <textarea
                 placeholder="Viết bình luận..."
                 rows={2}

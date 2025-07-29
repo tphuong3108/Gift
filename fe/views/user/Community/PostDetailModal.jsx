@@ -14,19 +14,16 @@ const PostDetailModal = ({ post, onClose }) => {
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative">
 
-        {/* Nút đóng */}
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-600 hover:text-black z-10">
           <X size={24} />
         </button>
 
-        {/* Vùng ảnh */}
         <div className="flex-[2] bg-[#4AB262] flex items-center justify-center relative">
           <img
             src={images[selectedImageIndex]}
             alt={`img-${selectedImageIndex}`}
             className="object-contain max-h-full max-w-full"
           />
-          {/* Thumbnail bên phải */}
           <div className="absolute right-4 top-4 bottom-4 overflow-y-auto space-y-2">
             {images.map((img, idx) => (
               <img
@@ -42,9 +39,7 @@ const PostDetailModal = ({ post, onClose }) => {
           </div>
         </div>
 
-        {/* Sidebar phải */}
         <div className="bg-[#4AB262] w-full lg:w-[350px] p-5 overflow-y-auto flex flex-col">
-          {/* Thông tin người đăng */}
           <div className="mb-3">
             <div className="flex items-center gap-3">
               <img src={post.user.avatar} alt="avatar" className="w-10 h-10 rounded-full" />

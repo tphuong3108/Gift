@@ -1,6 +1,11 @@
 import React from 'react';
 import { Image, Video, Calendar, Pencil } from 'lucide-react';
 import Avatar from '../../assets/img/avatar_1.png'
+// import Avatar from '../../assets/img/avatar_1.png'
+// import Avatar from '../../assets/img/avatar_1.png'
+// import Avatar from '../../assets/img/avatar_1.png'
+// import Avatar from '../../assets/img/avatar_1.png'
+
 const ShareBar = () => {
   return (
     <div className="bg-white rounded-xl shadow p-4">

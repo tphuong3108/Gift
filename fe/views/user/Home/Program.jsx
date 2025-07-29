@@ -72,7 +72,7 @@ const Program = () => {
         </div>
       </div>
 
-      <p className="text-gray-700 mb-6">
+      <p className="font-[Inter] text-gray-700 mb-6">
         Tham gia các chương trình ý nghĩa để lan tỏa tinh thần chia sẻ trong cộng đồng
       </p>
       <div className="px-2 sm:px-4 lg:px-6">

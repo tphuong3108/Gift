@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
 
         VÌ SAO NÊN CHỌN CHÚNG TÔI
       </h2>
-      <p className="text-[#3E3C63] text-base mb-8">
+      <p className="font-[Inter] text-[#3E3C63] text-base mb-8">
         Chúng tôi hướng đến một cộng đồng chia sẻ tích cực và bền vững
       </p>
 

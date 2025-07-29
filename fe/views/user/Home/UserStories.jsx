@@ -62,7 +62,7 @@ const UserStories = () => {
    <section className="bg-[#E8F5E9] w-full py-10 text-center">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-[#2E5E31] mb-1">CÂU CHUYỆN CỦA NGƯỜI DÙNG</h2>
-      <p className="text-[#3E3C63] mb-8">Những chia sẻ của các cá nhân đã đồng hành cùng chúng tôi</p>
+      <p className="font-[Inter] text-[#3E3C63] mb-8 text-m ">Những chia sẻ của các cá nhân đã đồng hành cùng chúng tôi</p>
 
       <div className="relative flex items-center justify-center">
         <div className="w-full flex justify-center items-center relative" style={{ height: '300px' }}>

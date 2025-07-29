@@ -7,7 +7,7 @@ const ActivityList = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-[#2E5E31] text-center mb-1">
         CÁCH HOẠT ĐỘNG
       </h2>
-      <p className="text-gray-600 text-center mb-10">
+      <p className="font-[Inter] text-gray-600 text-center mb-10">
         Khám phá các danh mục món đồ được chia sẻ nhiều nhất trong cộng đồng
       </p>
       <div className="flex justify-center">

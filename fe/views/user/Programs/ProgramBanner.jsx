@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Banner1 from '../../../src/assets/img/program.jpg';
 import Banner2 from '../../../src/assets/img/program.jpg';
+import PrevArrow from '../../../src/assets/img/PrevArrow.png';
+import NextArrow from '../../../src/assets/img/NextArrow.png';
 
 const ProgramBanner = () => {
   const banners = [Banner1, Banner2];
@@ -29,24 +30,23 @@ const ProgramBanner = () => {
           key={index}
           src={img}
           alt={`banner-${index}`}
-          className={` absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
+          className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
             index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         />
       ))}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full z-30 hover:bg-opacity-60"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30"
       >
-        <FaChevronLeft />
+        <img src={PrevArrow} alt="Previous" className="w-9 h-9" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full z-30 hover:bg-opacity-60"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30"
       >
-        <FaChevronRight />
+        <img src={NextArrow} alt="Next" className="w-9 h-9" />
       </button>
-
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
         {banners.map((_, i) => (
           <span

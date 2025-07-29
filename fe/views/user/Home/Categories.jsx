@@ -53,7 +53,7 @@ const Categories = () => {
     <h2 className="text-3xl font-bold text-[#2E5E31] text-center mb-2">
       DANH MỤC PHỔ BIẾN
     </h2>
-     <p className="text-gray-600 text-center mb-6">
+     <p className="font-[Inter] text-gray-600 text-center mb-6" >
       Khám phá các danh mục món đồ được chia sẻ nhiều nhất trong cộng đồng
     </p>
 

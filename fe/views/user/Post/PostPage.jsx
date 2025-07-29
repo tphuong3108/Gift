@@ -27,18 +27,25 @@ const PostPage = () => {
     const files = Array.from(e.target.files).slice(0, 5);
     setForm((prev) => ({ ...prev, images: files }));
   };
-
   return (
-    <div className="min-h-screen bg-[#E8F5E9] p-6 flex justify-center">
-      <div className="bg-white p-6 rounded-lg w-full max-w-3xl shadow-none"> 
-        <PostTitle />
-        <form className="space-y-6">
-          <PostBasicInfo form={form} handleChange={handleChange} />
-          <PostCategoryStatus form={form} handleChange={handleChange} />
-          <PostAddress form={form} handleChange={handleChange} />
+    <div className="min-h-screen bg-[#ECFDF5] py-10 px-4 flex justify-center">
+      <div className="w-full max-w-4xl bg-white p-8 rounded-2xl border border-gray-200 space-y-8">
+        <div className="text-center">
+          <PostTitle />
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 space-y-6">
+          <form className="space-y-6">
+            <PostBasicInfo form={form} handleChange={handleChange} />
+            <PostCategoryStatus form={form} handleChange={handleChange} />
+            <PostAddress form={form} handleChange={handleChange} />
+          </form>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 space-y-6">
           <PostImageUpload handleFileChange={handleFileChange} />
-          <PostActions />
-        </form>
+            <PostActions />
+        </div>
       </div>
     </div>
   );

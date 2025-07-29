@@ -67,7 +67,7 @@ const Header = () => {
       </div>
       {menuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 md:hidden">
-          <nav className="flex flex-col items-start space-y-2 p-4">
+          <nav className="flex flex-col items-start space-y-2 p-4 font-poppins">
             {menus.map((item, idx) => (
               <Link
                 key={idx}
@@ -83,7 +83,7 @@ const Header = () => {
             ))}
              <Link
                 to="/post"
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-poppins"
               >
                 + Đăng tin
               </Link>
@@ -93,7 +93,7 @@ const Header = () => {
               <div className="flex flex-col gap-3 w-full">
                 <div className="flex items-center gap-3">
                   <img src={avatar} className="w-10 h-10 rounded-full object-cover" alt="avatar" />
-                  <span className="font-medium text-gray-800">Xin chào</span>
+                  <span className="font-inter text-gray-800">Xin chào</span>
                 </div>
 
                 <Link
@@ -121,7 +121,7 @@ const Header = () => {
                 </Link>
 
                 <Link
-                  to="/my-posts"
+                  to="/community"
                   onClick={() => setMenuOpen(false)}
                   className="text-gray-700 hover:text-green-600"
                 >
@@ -164,13 +164,13 @@ const Header = () => {
         </div>
       )}
 
-      <nav className="hidden md:flex flex-grow justify-center items-center space-x-6">
+      <nav className="hidden md:flex flex-grow justify-center items-center space-x-6 font-poppins">
         {menus.map((item, idx) => (
           <Link
             key={idx}
             to={item.path}
             onClick={() => setActiveMenu(item.label)}
-            className={`relative font-medium px-2 py-1 transition ${
+            className={`relative font-poppins px-2 py-1 transition ${
               activeMenu === item.label
                 ? 'text-green-600'
                 : 'text-gray-600 hover:text-green-600'
@@ -183,8 +183,8 @@ const Header = () => {
           </Link>
         ))}
        <Link
-          to="/post"
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+          to="/community"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-poppins"
         >
           + Đăng tin
         </Link>
@@ -225,7 +225,7 @@ const Header = () => {
                     </li>
                     <li
                       onClick={() => {
-                        navigate('/my-posts');
+                        navigate('/community');
                         setDropdownOpen(false);
                       }}
                       className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
