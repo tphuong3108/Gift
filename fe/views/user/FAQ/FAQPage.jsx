@@ -31,8 +31,9 @@ const FAQPage = () => {
       <AskBox onClick={() => setShowForm(true)} />
 
       {showForm && (
+
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-[#E8F5E9] rounded-4xl p-6 w-[90%] max-w-sm relative shadow-xl ">
+          <div className="bg-[#F6FBF9] rounded-4xl p-6 w-[90%] max-w-sm relative shadow-xl ">
             <button
                 onClick={() => setShowForm(false)}
                 className="absolute top-3 right-3 bg-[#047857] text-white w-6 h-6 flex items-center justify-center rounded-full shadow"

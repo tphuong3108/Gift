@@ -66,12 +66,12 @@ const VerifyCode = () => {
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-[#4CAF50] text-white font-semibold py-2 rounded-md transition duration-300 hover:bg-green-600"
+          className="w-full bg-[#4CAF50] text-white text-xl font-semibold py-2 rounded-md transition duration-300 hover:bg-green-600"
         >
           TIẾP TỤC
         </button>
 
-        <p className="text-sm text-center mt-4">
+        <p className="text-[#828282] text-sm text-center mt-4">
           Bạn không nhận được mã?{' '}
           <button
             className="text-red-500 underline"

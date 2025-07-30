@@ -13,7 +13,7 @@ const CallToAction = () => {
       </p>
 
       <div className="flex justify-center gap-4 mt-6">
-        <button className="bg-green-600 hover:bg-green-700 text-white font-medium px-5 py-2 rounded-full flex items-center gap-2 transition">
+        <button className="bg-[#2E7D32] hover:bg-green-700 text-white font-medium px-5 py-2 rounded-full flex items-center gap-2 transition">
           Tham gia cộng đồng <FaArrowRight />
         </button>
         <button className="border border-green-600 text-green-600 hover:bg-green-50 font-medium px-5 py-2 rounded-full transition">

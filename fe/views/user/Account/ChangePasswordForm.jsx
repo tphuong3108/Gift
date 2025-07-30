@@ -22,12 +22,21 @@ const ChangePasswordForm = () => {
               placeholder={label}
               type={showPasswords[idx] ? 'text' : 'password'}
             />
-            <img
-              src={showPasswords[idx] ? Eye : Eye1}
-              alt="toggle"
-              onClick={() => togglePassword(idx)}
-              className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer opacity-70"
-            />
+            {showPasswords[idx] ? (
+              <img
+                src={Eye}
+                alt="Hiện mật khẩu"
+                onClick={() => togglePassword(idx)}
+                className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer opacity-70"
+              />
+            ) : (
+              <img
+                src={Eye1}
+                alt="Ẩn mật khẩu"
+                onClick={() => togglePassword(idx)}
+                className="w-4 h-4 absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer opacity-70"
+              />
+            )}
           </div>
         ))}
       </div>

@@ -7,6 +7,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -27,32 +28,40 @@ const ResetPassword = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-sm text-center">
-        <h2 className="text-2xl font-bold text-green-600">Món Quà Nhỏ</h2>
-        <h3 className="text-lg font-semibold text-green-700 mb-6">Cập nhật mật khẩu</h3>
+        <h2 className="text-3xl font-bold text-[#4CAF50] leading-tight mb-2">Món Quà Nhỏ</h2>
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#326E51] mb-6">Cập nhật mật khẩu</h1>
 
         <div className="space-y-4 text-left">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Nhập mật khẩu mới"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-
           <div className="relative">
             <input
               type={showPassword ? 'text' : 'password'}
+              placeholder="Nhập mật khẩu mới"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <img
+              src={showPassword ? Eye : Eye1}
+              alt="Toggle mật khẩu"
+              onClick={() => setShowPassword(!showPassword)}
+              className="w-[18px] h-[18px] object-contain absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+            />
+          </div>
+
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? 'text' : 'password'}
               placeholder="Xác thực mật khẩu mới"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <img
-                src={showPassword ? Eye : Eye1}
-                alt="Toggle"
-                onClick={() => setShowPassword(!showPassword)}
-                className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-             />
+              src={showConfirmPassword ? Eye : Eye1}
+              alt="Toggle xác nhận"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="w-[18px] h-[18px] object-contain absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+            />
           </div>
         </div>
 

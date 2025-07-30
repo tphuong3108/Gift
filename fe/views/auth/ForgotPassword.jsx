@@ -15,13 +15,13 @@ const ForgotPassword = () => {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-lg">
+      <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 w-full max-w-lg">
         <div className="mb-4">
-          <h2 className="text-3xl font-bold text-[#4CAF50] leading-tight">Món Quà Nhỏ</h2>
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#326E51]">Quên mật khẩu</h1>
+          <h2 className="text-3xl font-bold text-[#4CAF50] leading-tigh mb-2">Món Quà Nhỏ</h2>
+          <h1 className="text-4xl sm:text-3xl font-bold text-[#326E51]">Quên mật khẩu</h1>
         </div>
 
-        <p className="text-gray-600 text-sm mb-4">
+        <p className="text-[#828282] text-sm mb-4 font-[Inter]">
           Nhập email của bạn để xác minh, chúng tôi sẽ gửi mã gồm 4 chữ số đến email của bạn.
         </p>
 
@@ -30,7 +30,7 @@ const ForgotPassword = () => {
           placeholder="Nhập Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4 focus:outline-none "
         />
 
         <button

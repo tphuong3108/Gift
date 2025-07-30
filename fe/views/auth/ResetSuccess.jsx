@@ -18,11 +18,11 @@ const ResetSuccess = () => {
         className="w-16 h-16 mx-auto mb-4"
         />
         <h2 className="text-2xl font-semibold text-blue-900">Cập nhật mật khẩu thành công</h2>
-        <p className="text-sm text-gray-600 mt-2 mb-6">Mật khẩu của bạn đã được cập nhật</p>
+        <p className="text-[#828282] text-xs mt-2 mb-6">Mật khẩu của bạn đã được cập nhật</p>
 
         <button
           onClick={handleContinue}
-          className="w-full bg-green-800 text-white font-semibold py-2 rounded-md hover:bg-green-900 transition"
+          className="w-full bg-[#326E51] text-white font-semibold py-2 "
         >
           TIẾP TỤC
         </button>

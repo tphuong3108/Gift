@@ -56,8 +56,9 @@ const ProductCard = ({ product, isOwner }) => {
         <div className="flex items-center justify-between w-full mt-4">
           <button
             onClick={isOwner ? handleViewRequestClick : handleDetailClick}
-            className="flex items-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-semibold px-6 py-2 rounded-full transition w-[300px] justify-center"
+            className="flex items-center gap-2 bg-[#18A661] hover:bg-[#18A661] text-white text-sm font-semibold px-6 py-2 rounded-full transition w-[300px] justify-center"
           >
+
             {isOwner ? 'Xem Yêu Cầu Nhận Quà' : 'Xem Chi Tiết'}
             <ArrowUpRight size={16} />
           </button>

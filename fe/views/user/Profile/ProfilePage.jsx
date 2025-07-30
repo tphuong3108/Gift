@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { userService } from '../../../src/services/userService';
-
 import MyProfileCard from './MyProfileCard';
 import OtherProfileCard from './OtherProfileCard';
 import AdCard from './AdCard';

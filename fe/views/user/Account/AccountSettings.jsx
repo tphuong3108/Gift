@@ -16,7 +16,7 @@ const AccountSettings = () => {
   if (!user) return null;
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-6 bg-gray-50">
+    <div className="flex flex-col md:flex-row gap-6 p-6 bg-gray-50 max-w-7xl mx-auto">
       <div className="w-full md:w-[25%]">
         <MyProfileCard user={user} />
       </div>

@@ -33,8 +33,8 @@ const Login = () => {
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm">
-      <h1 className="text-green-600 text-2xl font-bold text-center mb-1">Món Quà Nhỏ</h1>
-      <p className="text-center mb-6 font-medium">Đăng nhập</p>
+      <h1 className="text-[#4CAF50] text-3xl font-bold text-center mb-1">Món Quà Nhỏ</h1>
+      <p className="text-center mb-6 font-medium text-[#4CAF50] ">Đăng nhập</p>
 
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input
@@ -72,7 +72,8 @@ const Login = () => {
         </div>
 
         <div className="flex justify-end text-xs">
-          <Link to="/forgot-password" className="text-green-600 hover:underline">
+
+          <Link to="/forgot-password" className="text-[#047857] hover:underline">
             Quên mật khẩu?
           </Link>
         </div>
@@ -80,21 +81,20 @@ const Login = () => {
         {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
         <div className="flex justify-center">
+
           <button
             type="submit"
-            className="w-40 bg-green-600 text-white py-2 rounded-full hover:bg-green-700 text-sm"
+            className="w-40 bg-[#4CAF50] text-white py-2 rounded-full hover:bg-green-700 text-sm"
           >
             Đăng Nhập
           </button>
         </div>
 
-        <div className="relative text-center my-4">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative bg-white px-3 text-sm text-gray-500">Hoặc</div>
+        <div className="flex items-center my-6">
+          <div className="flex-grow border-t border-black"></div>
+          <span className="px-4 text-[13px] font-[Inter] text-black">Hoặc</span>
+          <div className="flex-grow border-t border-black"></div>
         </div>
-
         <div className="flex justify-between gap-3">
           <button
             onClick={handleGoogleLogin}
