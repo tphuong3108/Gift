@@ -13,6 +13,7 @@ import MapIcon from '../../../src/assets/img/map2.png';
 import FB from '../../../src/assets/img/facebook.png';
 import Zalo from '../../../src/assets/img/zalo.png';
 import Gmail from '../../../src/assets/img/mail.png';
+import { Link } from 'react-router-dom';
 import Border from '../../../src/assets/img/border.png';  
 import Report from './Report';
 
@@ -37,10 +38,13 @@ const OtherProfileCard = ({ user }) => {
                 <img src={ShareIcon} className="w-4 h-4" />
                 <span>Chia sẻ trang cá nhân</span>
               </li>
+
+              <Link to="/messages" className="block w-full">
               <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
                 <img src={ChatIcon} className="w-4 h-4" />
                 <span>Chat</span>
               </li>
+              </Link>
               <li
                 className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {

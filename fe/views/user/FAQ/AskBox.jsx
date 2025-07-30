@@ -5,6 +5,7 @@ const AskBox = ({ onClick }) => {
     <div
       className="mt-10 max-w-5xl mx-auto rounded-2xl p-6"
       style={{ backgroundColor: '#4CAF50B0' }}
+
     >
       <div className="flex flex-col sm:flex-row justify-between items-center text-white gap-4">
         <div className="text-center sm:text-left">
