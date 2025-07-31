@@ -7,8 +7,8 @@ import PencilIcon from '../../assets/img/Pencil.png';
 
 const ShareBar = () => {
   return (
-    <div className="bg-white rounded-xl shadow p-4">
-      <div className="flex items-center gap-3 mb-4">
+    <div className="bg-white rounded-xl shadow p-4 sm:p-5">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-4">
         <img
           src={Avatar}
           alt="avatar"
@@ -17,11 +17,13 @@ const ShareBar = () => {
         <input
           type="text"
           placeholder="Bạn đang nghĩ gì?"
-          className="flex-1 border border-gray-200 rounded-full px-4 py-2 focus:outline-none bg-gray-100"
+          className="w-full border border-gray-200 rounded-full px-4 py-2 focus:outline-none bg-gray-100"
         />
       </div>
 
-      <div className="flex justify-around text-sm font-medium text-green-700">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-sm font-medium text-green-700">
+
+
         <div className="flex items-center gap-1 cursor-pointer group">
           <img
             src={ImageIcon}
@@ -40,7 +42,7 @@ const ShareBar = () => {
           Video
         </div>
 
-        <div className="flex items-center gap-1 cursor-pointer group text-green-700">
+        <div className="flex items-center gap-1 cursor-pointer group">
           <img
             src={CalendarIcon}
             alt="calendar"
@@ -58,6 +60,7 @@ const ShareBar = () => {
           Bài viết
         </div>
       </div>
+
     </div>
   );
 };

@@ -18,6 +18,7 @@ const Header = () => {
   const [avatar, setAvatar] = useState(AvatarIcon);
   const [activeMenu, setActiveMenu] = useState('Trang chủ');
   const [username, setUsername] = useState('');
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -57,17 +58,22 @@ const Header = () => {
     { label: 'FAQ', path: '/faq' },
   ];
 
-  return (    
+  return (
     <header className="relative h-22 bg-[#E8F5E9] border-b border-[#000000B2] p-3 px-4 sm:px-6 flex items-center justify-between z-50">
-      <div className="text-2xl font-bold text-[#4CAF50] flex-shrink-0">Món Quà Nhỏ</div>
-      <div className="md:hidden">
+      <Link to="/">
+        <div className="text-2xl font-bold text-[#4CAF50] flex-shrink-0 cursor-pointer">
+          Món Quà Nhỏ
+        </div>
+      </Link>
+      <div className="lg:hidden">
         <button onClick={() => setMenuOpen(!menuOpen)} className="text-green-600 text-xl">
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
+
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 md:hidden">
-          <nav className="flex flex-col items-start space-y-2 p-4 font-poppins">
+       <div className=" absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-md z-50 lg:hidden w-[90%] max-w-md rounded-lg">
+          <nav className="flex flex-col items-start space-y-2 px-6 py-4 font-[Inter]">
             {menus.map((item, idx) => (
               <Link
                 key={idx}
@@ -81,73 +87,46 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-             <Link
+              <Link
                 to="/post"
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-poppins"
+                onClick={() => setMenuOpen(false)}
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
               >
                 + Đăng tin
               </Link>
             <hr className="my-3 w-full border-gray-200" />
 
-            {isLoggedIn ? (
-              <div className="flex flex-col gap-3 w-full">
-                <div className="flex items-center gap-3">
-                  <img src={avatar} className="w-10 h-10 rounded-full object-cover" alt="avatar" />
-                  <span className="font-inter text-gray-800">Xin chào</span>
+              {isLoggedIn ? (
+                <div className="flex flex-col gap-3 w-full">
+                  <div
+                    className="flex items-center gap-3 cursor-pointer"
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  >
+                    <img src={avatar} className="w-10 h-10 rounded-full object-cover" alt="avatar" />
+                    <span className="font-[Inter] text-gray-800">Xin chào</span>
+                    <FaChevronDown className="text-green-600" />
+                  </div>
+
+                  {userMenuOpen && (
+                    <div className="flex flex-col gap-2 w-full pl-6 mt-2">
+                      <Link to={`/profile/${username}`} onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-green-600">Hồ sơ cá nhân</Link>
+                      <Link to="/notifications" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-green-600">Thông báo</Link>
+                      <Link to="/messages" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-green-600">Tin nhắn</Link>
+                      <Link to="/community" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-green-600">Tin đã đăng</Link>
+                      <Link to="/account-settings" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-green-600">Cài đặt tài khoản</Link>
+                      <button
+                        onClick={() => {
+                          handleLogout();
+                          setMenuOpen(false);
+                        }}
+                        className="text-left text-red-500 hover:text-red-600"
+                      >
+                        Đăng xuất
+                      </button>
+                    </div>
+                  )}
                 </div>
-
-                <Link
-                  to={`/profile/${username}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Hồ sơ cá nhân
-                </Link>
-
-                <Link
-                  to="/notifications"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Thông báo
-                </Link>
-
-                <Link
-                  to="/messages"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Tin nhắn
-                </Link>
-
-                <Link
-                  to="/community"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Tin đã đăng
-                </Link>
-
-                
-                <Link
-                  to="/account-settings"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 hover:text-green-600"
-                >
-                  Cài đặt tài khoản
-                </Link>
-
-                <button
-                  onClick={() => {
-                    handleLogout();
-                    setMenuOpen(false);
-                  }}
-                  className="text-left text-red-500 hover:text-red-600"
-                >
-                  Đăng xuất
-                </button>
-              </div>
-            ) : (
+              ) : (
               <div className="flex flex-col gap-3 w-full">
                 <button
                   onClick={() => {
@@ -164,7 +143,7 @@ const Header = () => {
         </div>
       )}
 
-      <nav className="hidden md:flex flex-grow justify-center items-center space-x-6 font-poppins">
+      <nav className="hidden lg:flex flex-grow justify-center items-center space-x-6 font-[Inter]">
         {menus.map((item, idx) => (
           <Link
             key={idx}
@@ -182,16 +161,19 @@ const Header = () => {
             )}
           </Link>
         ))}
-       <Link
-          to="/community"
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-poppins"
+        <Link
+          to="/post"
+          onClick={() => setMenuOpen(false)}
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
         >
           + Đăng tin
         </Link>
       </nav>
 
-      <div className="hidden md:flex items-center space-x-3">
-        <span className="bg-white text-green-600 rounded-full px-3 py-1 text-base font-bold">VN</span>
+      <div className="hidden lg:flex items-center space-x-3">
+        <span className="bg-white text-green-600 rounded-full w-10 h-10 flex items-center justify-center text-base font-bold">
+        VN
+      </span>
 
         {isLoggedIn ? (
           <>
@@ -261,7 +243,7 @@ const Header = () => {
               <img
                 src={AvatarIcon}
                 alt="avatar"
-                className="w-6 h-6 rounded-full border border-white object-cover"
+                className="w-6 h-6"
               />
               <span>Tài khoản</span>
               <FaChevronDown />

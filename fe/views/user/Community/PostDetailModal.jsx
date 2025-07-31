@@ -11,8 +11,7 @@ const PostDetailModal = ({ post, imageIndex, onPrev, onNext, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/50">
-      <div className="rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative bg-[#E8F5E9] items-center ">
-        
+      <div className="rounded-xl shadow-xl flex flex-col lg:flex-row w-full max-w-6xl h-[90vh] overflow-hidden relative bg-[#E8F5E9] items-center lg:items-stretch">
         <div className="absolute top-4 left-4 z-10">
           <div className="flex items-center gap-2 px-4 py-2 text-[#4CAF50] font-semibold text-sm">
             <button onClick={onClose}>
@@ -22,7 +21,7 @@ const PostDetailModal = ({ post, imageIndex, onPrev, onNext, onClose }) => {
           </div>
         </div>
 
-        <div className="relative flex-1 flex flex-col items-center justify-center overflow-hidden max-w-[60%] mr-2 ml-5">
+        <div className="relative flex-1 flex flex-col items-center justify-center overflow-hidden w-full lg:max-w-[60%] lg:mr-2 lg:ml-5 mb-4 lg:mb-0">
            <div className="w-full h-px bg-[#7D91AA] my-3" />
           <img
             src={post.images[imageIndex]}
@@ -62,7 +61,7 @@ const PostDetailModal = ({ post, imageIndex, onPrev, onNext, onClose }) => {
             </button>
           </div>
         </div>
-        <div className="w-[60%] max-w-sm h-[65vh] rounded-2xl border border-[#29752F] flex items-center justify-center ml-4 rounded-xl">
+        <div className="w-full lg:w-[60%] max-w-full lg:max-w-sm h-[70vh] rounded-2xl border border-[#29752F] flex items-center justify-center px-3 lg:ml-4">
           <div className="bg-[#E8F5E9] rounded-xl p-3 flex flex-col justify-between h-full w-full shadow-lg">
             <div>
               <div className="flex items-center gap-2 mb-1">

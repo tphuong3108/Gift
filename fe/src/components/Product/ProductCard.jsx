@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Heart, Truck, Box, ArrowUpRight } from 'lucide-react';
+import { Truck, Box, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Heart from '../../assets/img/heart_2.png';
+import HeartFilled from '../../assets/img/heart_red.png';
 import ProductDetailPopup from '../../../views/user/Profile/ProductDetailPopup';
 
-const ProductCard = ({ product, isOwner }) => {
+const ProductCard = ({ product, isOwner, className = '' }) => {
   const navigate = useNavigate();
   const [showDetailPopup, setShowDetailPopup] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   const handleDetailClick = () => {
     navigate(`/product/${product.id}`);
@@ -17,7 +20,7 @@ const ProductCard = ({ product, isOwner }) => {
 
   return (
     <>
-      <div className="bg-white rounded-2xl shadow p-4 flex flex-col justify-between relative h-[460px] w-full">
+      <div className={`bg-white rounded-2xl shadow p-4 flex flex-col justify-between relative h-full min-h-[460px] w-full ${className || ''}`}>
         <div className="absolute top-3 left-3">
           <span className="text-xs font-bold bg-blue-500 text-white px-2 py-1 rounded-full">
             {product.category || 'Danh mục'}
@@ -32,14 +35,16 @@ const ProductCard = ({ product, isOwner }) => {
           </div>
         )}
 
-        <div className="flex-1 flex flex-col justify-between">
+        <div className="flex-1 flex flex-col justify-between mt-6 mb-4">
           <img
             src={product.img}
             alt={product.name}
-            className="w-full h-40 object-contain my-4"
+            className="w-full h-40 object-contain mb-4"
           />
           <div>
-            <h3 className="text-base font-semibold mb-1 line-clamp-1">{product.name}</h3>
+            <h3 className="text-base font-semibold mb-1 line-clamp-1">
+              {product.name}
+            </h3>
             <ul className="text-sm text-gray-700 list-disc pl-5 mb-3">
               {product.details?.slice(0, 2).map((d, i) => (
                 <li key={i}>{d}</li>
@@ -47,32 +52,51 @@ const ProductCard = ({ product, isOwner }) => {
             </ul>
           </div>
         </div>
-
-        <div className="flex items-center gap-4 border-t pt-3 text-gray-500 text-sm mt-auto">
-          {product.freeShip && <div className="flex items-center gap-1"><Truck size={14} /> Miễn phí giao hàng</div>}
-          {product.hasBox && <div className="flex items-center gap-1"><Box size={14} /> Còn box</div>}
+        <div className="flex flex-col gap-2 border-t pt-3 text-gray-500 text-sm mt-auto">
+          {product.freeShip && (
+            <div className="flex items-center gap-1 min-w-0">
+              <Truck size={14} className="shrink-0" />
+              <span className="whitespace-normal break-words">Miễn phí giao hàng</span>
+            </div>
+          )}
+          {product.hasBox && (
+            <div className="flex items-center gap-1 min-w-0">
+              <Box size={14} className="shrink-0" />
+              <span className="whitespace-normal break-words">Còn box</span>
+            </div>
+          )}
         </div>
+      <div className="flex items-center justify-between mt-4 gap-2">
+        <button
+          onClick={isOwner ? handleViewRequestClick : handleDetailClick}
+          className="flex-1 flex items-center justify-center gap-2 bg-[#18A661] hover:bg-[#149456] text-white text-sm font-semibold px-4 py-2 rounded-full transition"
+        >
+          {isOwner ? 'Xem Yêu Cầu Nhận Quà' : 'Xem Chi Tiết'}
+          <ArrowUpRight size={16} />
+        </button>
 
-        <div className="flex items-center justify-between w-full mt-4">
-          <button
-            onClick={isOwner ? handleViewRequestClick : handleDetailClick}
-            className="flex items-center gap-2 bg-[#18A661] hover:bg-[#18A661] text-white text-sm font-semibold px-6 py-2 rounded-full transition w-[300px] justify-center"
-          >
-
-            {isOwner ? 'Xem Yêu Cầu Nhận Quà' : 'Xem Chi Tiết'}
-            <ArrowUpRight size={16} />
-          </button>
-          <Heart size={22} className="text-green-600 cursor-pointer ml-4" />
-        </div>
+        <button
+          onClick={() => setLiked(!liked)}
+          className="w-8 h-8 shrink-0"
+          aria-label="Yêu thích"
+        >
+          <img
+            src={liked ? HeartFilled : Heart}
+            alt="heart"
+            className="w-full h-full object-contain"
+          />
+        </button>
+      </div>
       </div>
 
       {isOwner && showDetailPopup && (
-        <ProductDetailPopup product={product} onClose={() => setShowDetailPopup(false)} />
+        <ProductDetailPopup
+          product={product}
+          onClose={() => setShowDetailPopup(false)}
+        />
       )}
     </>
   );
 };
 
 export default ProductCard;
-
-

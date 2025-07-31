@@ -22,7 +22,7 @@ const OtherProfileCard = ({ user }) => {
   const [showReport, setShowReport] = useState(false);
 
   return (
-    <div className="relative w-full max-w-full bg-white rounded-3xl shadow-xl overflow-hidden pb-6 text-center mx-auto">
+    <div className="relative w-full sm:max-w-[420px] lg:max-w-[380px] bg-white rounded-3xl shadow-xl overflow-hidden pb-6 text-center mx-auto">
       {showReport && <Report onClose={() => setShowReport(false)} />}
       
       <div className="absolute top-4 right-4 z-50">

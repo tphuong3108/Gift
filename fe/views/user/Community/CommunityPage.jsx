@@ -28,9 +28,9 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="bg-[#E8F5E9] min-h-screen px-4 py-6">
+    <div className="bg-[#E8F5E9] min-h-screen px-4 sm:px-6 py-6">
       <div className="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto">
-        <div className="flex-1 space-y-6">
+        <div className="w-full lg:flex-1 space-y-6">
           <ShareBar />
           {posts.map((post) => (
             <PostCard
@@ -44,7 +44,7 @@ const CommunityPage = () => {
           ))}
         </div>
 
-        <div className="w-full lg:w-[320px] space-y-6">
+        <div className="hidden lg:block lg:w-[320px] space-y-6">
           <CommunitySidebar />
         </div>
       </div>

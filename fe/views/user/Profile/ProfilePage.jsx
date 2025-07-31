@@ -36,8 +36,8 @@ const ProfilePage = () => {
 
   return (
     <> 
-      <div className="flex flex-col md:flex-row bg-white min-h-screen w-full px-6 py-6 gap-8">
-        <div className="w-full md:w-[21%] flex flex-col items-start gap-6 max-w-7xl mx-auto">
+      <div className="flex flex-col lg:flex-row bg-white min-h-screen w-full px-6 py-6 gap-8">
+        <div className="w-full lg:w-[21%] flex flex-col items-center lg:items-start gap-6 max-w-7xl mx-auto">
           {isOwner ? (
             <MyProfileCard user={user} />
           ) : (

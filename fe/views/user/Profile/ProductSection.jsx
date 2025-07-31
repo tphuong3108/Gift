@@ -3,13 +3,12 @@ import ProductCard from '../../../src/components/Product/ProductCard';
 
 const ProductSection = ({ selectedTab, setSelectedTab, products, isOwner, onProductClick }) => (
   <>
-    {/* Thanh điều hướng */}
-    <div className="flex gap-8 mb-4 border-b border-gray-200 justify-start">
+    <div className="flex gap-8 mb-4 border-b border-[#4CAF50] justify-start">
       {['displaying', 'given'].map((tab) => (
         <button
           key={tab}
           className={`py-2 font-semibold ${
-            selectedTab === tab ? 'border-b-4 border-black text-black' : 'text-gray-500'
+            selectedTab === tab ? 'border-b-2 border-black text-black' : 'text-gray-500'
           }`}
           onClick={() => setSelectedTab(tab)}
         >
@@ -18,9 +17,8 @@ const ProductSection = ({ selectedTab, setSelectedTab, products, isOwner, onProd
       ))}
     </div>
 
-    {/* Phần hiển thị sản phẩm */}
     <div className="px-4 py-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 ml-[-1rem]"> {/* Giảm gap và margin-left */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center w-full max-w-5xl mx-auto">
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard

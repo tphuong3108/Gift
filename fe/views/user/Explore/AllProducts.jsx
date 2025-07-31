@@ -20,7 +20,7 @@ const AllProducts = () => {
             ))}
           </div>
           <div className="flex justify-center">
-            <button className="bg-[#4CAF50] hover:bg-[#43A047] text-white px-6 py-2 rounded-full text-sm font-semibold">
+            <button className="bg-[#18A661] text-white px-6 py-2 rounded-full text-sm font-semibold">
               XEM THÊM
             </button>
           </div>

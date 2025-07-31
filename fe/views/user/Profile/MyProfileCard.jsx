@@ -16,23 +16,23 @@ import Projects from '../../../src/assets/img/Projects.png';
 
 const MyProfileCard = ({ user }) => {
   return (
-    <div className="relative w-full max-w-full bg-white rounded-3xl shadow-xl overflow-hidden pb-6 text-center mx-auto">
+    <div className="relative w-full sm:max-w-[420px] lg:max-w-[380px] bg-white rounded-3xl shadow-xl overflow-hidden pb-6 text-center mx-auto">
       <div className="w-full h-28 bg-[#D9D9D9] rounded-t-3xl relative">
-        <div className="absolute -bottom-12 left-[20px] w-32 h-32 z-20">
-          <div className="w-full h-full rounded-full relative">
-            <div className="absolute top-0 left-0 w-full h-full border-2 border-green-600 rounded-full z-10"></div>
-              <img
-                src={user.avatar}
-                alt="Avatar"
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
+        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 w-24 h-24 sm:w-32 sm:h-32 z-20">
+          <div className="relative w-full h-full rounded-full border-2 border-green-600 overflow-hidden">
+            <img
+              src={user.avatar}
+              alt="Avatar"
+              className="w-full h-full object-cover"
+            />
           </div>
+        </div>
       </div>
 
-      <div className="pt-16 px-6 w-full">
-        <h2 className="text-xl font-bold text-green-700 text-left">HIKO</h2>
-        <div className="flex items-center gap-6 mt-1 mb-4 text-green-600 font-medium text-sm text-left">
+      <div className="pt-20 sm:pt-24 px-4 sm:px-6 w-full text-center sm:text-left">
+        <h2 className="text-xl font-bold text-green-700 sm:text-left">HIKO</h2>
+
+        <div className="flex justify-center sm:justify-start gap-6 mt-1 mb-4 text-green-600 font-medium text-sm">
           <span className="flex items-center gap-1">
             <img src={Followers} alt="Followers" className="w-4 h-4" />
             312
@@ -43,17 +43,19 @@ const MyProfileCard = ({ user }) => {
           </span>
         </div>
 
-        <button className="w-full py-2 mb-2 bg-green-600 text-white rounded-full shadow-md flex items-center justify-center gap-2 text-sm hover:bg-green-700 transition">
-          <img src={Share2} className="w-4 h-4" alt="Share" />
-          Chia sẻ trang cá nhân
-        </button>
-
-        <Link to="/account-settings" className="block w-full">
-          <button className="w-full py-2 mb-4 bg-white border border-green-600 text-green-600 rounded-full flex items-center justify-center gap-2 text-sm hover:bg-gray-50 transition">
-            <img src={SettingIcon} className="w-4 h-4" alt="Edit" />
-            Chỉnh sửa trang cá nhân
+        <div className="flex flex-col gap-2 mb-4">
+          <button className="w-full py-2 px-4 bg-green-600 text-white rounded-full shadow-md flex items-center justify-center gap-2 text-sm hover:bg-green-700 transition">
+            <img src={Share2} className="w-4 h-4" alt="Share" />
+            Chia sẻ trang cá nhân
           </button>
-        </Link>
+
+          <Link to="/account-settings" className="block w-full">
+            <button className="w-full py-2 px-4 bg-white border border-green-600 text-green-600 rounded-full flex items-center justify-center gap-2 text-sm hover:bg-gray-50 transition">
+              <img src={SettingIcon} className="w-4 h-4" alt="Edit" />
+              Chỉnh sửa trang cá nhân
+            </button>
+          </Link>
+        </div>
 
         <div className="text-left text-sm text-black space-y-2">
           <p className="flex items-center gap-2">
