@@ -90,7 +90,7 @@ const Header = () => {
               <Link
                 to="/post"
                 onClick={() => setMenuOpen(false)}
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
+                className="bg-[#18A661] text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
               >
                 + Đăng tin
               </Link>
@@ -164,7 +164,7 @@ const Header = () => {
         <Link
           to="/post"
           onClick={() => setMenuOpen(false)}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
+          className="bg-[#18A661] text-white px-4 py-2 rounded-lg hover:bg-green-700 font-[Inter]"
         >
           + Đăng tin
         </Link>

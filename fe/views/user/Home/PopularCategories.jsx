@@ -15,7 +15,7 @@ const PopularCategories = () => {
               Đây là danh sách các sản phẩm phổ biến nhất
             </p>
           </div>
-          <button className="bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-medium px-4 py-2 rounded-full">
+          <button className="bg-[#18A661] hover:bg-[#18A661] text-white text-sm font-medium px-4 py-2 rounded-full">
             Xem thêm →
           </button>
         </div>

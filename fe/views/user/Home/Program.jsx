@@ -158,7 +158,7 @@ const Program = () => {
                   <p className="text-sm text-gray-500 mb-4">
                     Mục Tiêu: {program.goal.toLocaleString()} VNĐ
                   </p>
-                  <button className="mt-auto self-center bg-[#53A059] text-white text-sm px-3 py-2 rounded-full hover:bg-green-700 transition w-fit">
+                  <button className="mt-auto self-center bg-[#18A661] text-white text-sm px-3 py-2 rounded-full hover:bg-green-700 transition w-fit">
                     THAM GIA NGAY
                   </button>
                 </div>

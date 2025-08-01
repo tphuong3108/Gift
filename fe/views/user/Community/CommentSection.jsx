@@ -10,13 +10,13 @@ const CommentSection = ({ post }) => {
     {
       id: 1,
       user: post.user,
-      content: 'Lorem ipsum dolor sit amet...',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam nisi, cras neque, lorem vel vulputate vitae aliquam. Pretium tristique nisi, ut commodo fames. Porttitor et sagittis egestas vitae metus, odio tristique amet, duis. Nunc tortor elit aliquet quis in mauris.',
       time: '5m',
     },
     {
       id: 2,
       user: post.user,
-      content: 'Lorem ipsum dolor sit amet...',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam nisi, cras neque, lorem vel vulputate vitae aliquam. Pretium tristique nisi, ut commodo fames. Porttitor et sagittis egestas vitae metus, odio tristique amet, duis. Nunc tortor elit aliquet quis in mauris.',
       time: '2m',
     },
   ]);
@@ -34,7 +34,7 @@ const CommentSection = ({ post }) => {
   };
 
   return (
-    <div className="w-full lg:w-[40%] h-[65vh] sm:h-[65vh] mt-4 lg:mt-0 px-2 sm:px-4 overflow-y-auto">
+    <div className="w-full lg:w-[40%] max-h-[80vh] mt-4 lg:mt-0 px-2 sm:px-4 overflow-y-auto">
       <div className="w-full h-full rounded-xl border border-[#29752F] flex items-center justify-center">
         <div className="bg-[#E8F5E9] rounded-xl p-3 flex flex-col justify-between h-full w-full shadow-lg">
           <div className="flex items-center gap-2 mb-1">
