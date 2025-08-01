@@ -72,7 +72,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-       <div className=" absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-md z-50 lg:hidden w-[90%] max-w-md rounded-lg">
+       <div className="absolute top-full right-0 w-[90%] max-w-sm bg-white shadow-md z-50 lg:hidden rounded-lg">
           <nav className="flex flex-col items-start space-y-2 px-6 py-4 font-[Inter]">
             {menus.map((item, idx) => (
               <Link
